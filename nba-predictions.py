@@ -46,7 +46,15 @@ def transform(player_stats, team_stats):
     player_stats = player_stats.sort_values(by='Points', ascending=False)
     stats_renamed = player_stats.rename(columns=cols_info)
     stats_renamed = stats_renamed.reset_index(drop=True)
+
     
+    list_cols = 'StatID TeamID SeasonType Season GlobalTeamID GameID OpponentID FieldGoalsMade FieldGoalsAttempted TwoPointersMade TwoPointersAttempted ThreePointersMade ThreePointersAttempted Opponent Day DateTime HomeOrAway IsGameOver GlobalGameID GlobalOpponentID Updated Games FantasyPoints Minutes Seconds FantasyPointsFanDuel FantasyPointsDraftKings FantasyPointsYahoo PlusMinus DoubleDoubles TripleDoubles FantasyPointsFantasyDraft IsClosed LineupConfirmed LineupStatus'.split(' ')
+    team_stats.drop(columns=list_cols, inplace=True)
+    unified_team_stats = pd.DataFrame(team_stats.columns).set_index(0).transpose()
+    unified_team_stats['Name'] = stats_renamed['Team'][0]
+    unified_team_stats['Team'] = stats_renamed['Team'][0]
+
+    print(unified_team_stats)
     
 
 if __name__ == '__main__':
