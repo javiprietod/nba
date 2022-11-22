@@ -10,11 +10,13 @@ def extract(team):
     for t in response:
         if t['Active'] == True:
             teams[t['City'] +' '+ t['Name']] = (t['TeamID'],t['Key'])
+            
     if team in teams:
         team_key = teams[team][1]
         team_id = teams[team][0]
+        print(team_key), print(team_id)
         player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/{team_key}?key={api_key}').json()
-        team_stats = stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2022/{team_id}/all?key=5ecd3d649b5f4b51a6cb172b11cba307').json()
+        team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2022/{team_id}/all?key={api_key}').json()
     else:
         print('Team not found')
         return
@@ -24,8 +26,7 @@ def extract(team):
 def transform(player_stats, team_stats):
     player_stats = pd.DataFrame(player_stats)
     team_stats = pd.DataFrame(team_stats)
-    
-    cols = ['Name', 'Team', 'Position', 'Minutes', 'Games', 'Points', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'StealsPercentage', 'PersonalFouls','BlocksPercentage', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveRebounds','DefensiveRebounds','ThreePointersPercentage', 'FreeThrowsPercentage']
+    cols = ['Name', 'Team', 'Position', 'Minutes', 'Games', 'Points', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'StealsPercentage', 'PersonalFouls','BlocksPercentage', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveReboundsPercentage','DefensiveReboundsPercentage','TotalReboundsPercentage','ThreePointersPercentage', 'FreeThrowsPercentage']
     player_stats = player_stats.filter(items=cols)
     
     cols_info = {}
@@ -44,17 +45,40 @@ def transform(player_stats, team_stats):
         cols_info[col] = words
             
     player_stats = player_stats.sort_values(by='Points', ascending=False)
-    stats_renamed = player_stats.rename(columns=cols_info)
-    stats_renamed = stats_renamed.reset_index(drop=True)
+    player_stats = player_stats.rename(columns=cols_info)
+    player_stats = player_stats.reset_index(drop=True)
+    
+
+    list_cols = 'StatID TeamID SeasonType Season GlobalTeamID GameID OpponentID FieldGoalsMade FieldGoalsAttempted TwoPointersMade TwoPointersAttempted ThreePointersMade ThreePointersAttempted Opponent Day DateTime HomeOrAway IsGameOver GlobalGameID GlobalOpponentID Updated Games FantasyPoints Minutes Seconds FantasyPointsFanDuel FantasyPointsDraftKings FantasyPointsYahoo PlusMinus DoubleDoubles TripleDoubles FantasyPointsFantasyDraft IsClosed LineupConfirmed LineupStatus PlayerEfficiencyRating'.split(' ')
+    team_stats.drop(columns=list_cols, inplace=True)
+    
+    
+    team_stats = team_stats.rename(columns=cols_info)
+    mean = {}
+    for col in team_stats.columns:
+
+        if col in ['Name', 'Team']:
+            mean[col] = team_stats[col][0]
+            
+        elif team_stats[col].dtype == 'O':
+            mean[col] = player_stats[col].mean()
+
+        else:
+            team_stats[col] = team_stats[col].astype(float)
+            mean[col] = team_stats[col].mean()
 
     
-    list_cols = 'StatID TeamID SeasonType Season GlobalTeamID GameID OpponentID FieldGoalsMade FieldGoalsAttempted TwoPointersMade TwoPointersAttempted ThreePointersMade ThreePointersAttempted Opponent Day DateTime HomeOrAway IsGameOver GlobalGameID GlobalOpponentID Updated Games FantasyPoints Minutes Seconds FantasyPointsFanDuel FantasyPointsDraftKings FantasyPointsYahoo PlusMinus DoubleDoubles TripleDoubles FantasyPointsFantasyDraft IsClosed LineupConfirmed LineupStatus'.split(' ')
-    team_stats.drop(columns=list_cols, inplace=True)
-    unified_team_stats = pd.DataFrame(team_stats.columns).set_index(0).transpose()
-    unified_team_stats['Name'] = stats_renamed['Team'][0]
-    unified_team_stats['Team'] = stats_renamed['Team'][0]
+    team_stats.to_csv('team.csv', index=False)
+    
+    
+    team_unified = pd.DataFrame(mean, index=[0])
+    
 
-    print(unified_team_stats)
+    #unified_team_stats = pd.DataFrame(team_stats.columns).set_index(0).transpose()
+    #unified_team_stats['Name'] = stats_renamed['Team'][0]
+    #unified_team_stats['Team'] = stats_renamed['Team'][0]
+
+    
     
 
 if __name__ == '__main__':
