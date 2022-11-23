@@ -47,7 +47,7 @@ def transform(player_stats, team_stats):
     player_stats = player_stats.sort_values(by='Points', ascending=False)
     player_stats = player_stats.rename(columns=cols_info)
     player_stats = player_stats.reset_index(drop=True)
-    
+    player_stats.to_csv('player_stats.csv', index=False)
 
     list_cols = 'StatID TeamID SeasonType Season GlobalTeamID GameID OpponentID FieldGoalsMade FieldGoalsAttempted TwoPointersMade TwoPointersAttempted ThreePointersMade ThreePointersAttempted Opponent Day DateTime HomeOrAway IsGameOver GlobalGameID GlobalOpponentID Updated Games FantasyPoints Minutes Seconds FantasyPointsFanDuel FantasyPointsDraftKings FantasyPointsYahoo PlusMinus DoubleDoubles TripleDoubles FantasyPointsFantasyDraft IsClosed LineupConfirmed LineupStatus PlayerEfficiencyRating'.split(' ')
     team_stats.drop(columns=list_cols, inplace=True)
