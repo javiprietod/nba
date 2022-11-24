@@ -11,7 +11,10 @@ warnings.filterwarnings('ignore')
 def images():
     team_temp = eval(open('config.txt','r').read())['team'].lower().split(' ')
     team = '-'.join(team_temp)
-    team_id = ''.join([team_temp[i][0] for i in range(len(team_temp))])
+    if len(team_temp) == 2:
+        team_id = team_temp[0][0]  + team_temp[0][1] + team_temp[0][2]
+    else:
+        team_id = team_temp[0][0] + team_temp[1][0] + team_temp[2][0]
     soup = BeautifulSoup(requests.get(f'https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/{team_id}/{team}').content, 'html.parser')
     tr = soup.find_all('tr', class_='Table__TR Table__TR--sm Table__even')
     contador = 0
@@ -27,8 +30,9 @@ def images():
             contador += 1
         else:
             break
-
-    open(f'images/Golden_State_Warriors.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
+    team_logo = '_'.join(team_temp)
+    
+    open(f'images/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
 
 def extract():
     team = eval(open('config.txt','r').read())['team']
@@ -119,24 +123,25 @@ def transform(player_stats, team_stats):
 def load(all_stats, legend):
     pdf = FPDF()
     # We get the team name from the config.txt file
-    team_name = eval(open('config.txt','r').read())['team'].upper()
+    team_name = eval(open('config.txt','r').read())['team']
 
-
+    file_name = '_'.join(team_name.lower().split(' '))
+    images()
     pdf.add_page()
-    pdf.image('images/Golden_State_Warriors.png', 5, 4, 20)
-    pdf.image('images/Golden_State_Warriors.png', 186, 4, 20)
+    pdf.image(f'images/{file_name}.png', 5, 4, 20)
+    pdf.image(f'images/{file_name}.png', 186, 4, 20)
     pdf.set_text_color(29,66,138)
     pdf.set_font('Arial', 'B', 20)
-    pdf.cell(200, 10, team_name, 0, 0, 'C')
+    pdf.cell(190, 10, team_name.upper(), 0, 0, 'C')
     pdf.set_text_color(0)
     pdf.ln(18)
     pdf.set_font('Arial', 'B', 15)
-    pdf.cell(200, 10, 'Team Stats', 0, 0, 'C')
+    pdf.cell(190, 10, 'Team Stats', 0, 0, 'C')
     pdf.ln(5)
 
     pdf.set_font('Arial', 'B', 5.5)
     
-    images()
+    
     
 
     pdf.ln(8)
@@ -145,7 +150,8 @@ def load(all_stats, legend):
     # We get the width of the columns
     row_height = 10
     col_width = {column: max([len(str(x)) for x in all_stats[column]])+2.2 for column in all_stats.columns}
-    col_width['Name'] += 4
+    col_width['Name'] = 33
+    
     pdf.set_fill_color(235)
     fill = True
 
@@ -155,7 +161,7 @@ def load(all_stats, legend):
     pdf.ln(row_height)
 
     # Setting the x and y for the images
-    x = 24.5
+    x = 30.5
     y = 50.89
 
     # We iter through the rows of the dataframe
@@ -174,7 +180,7 @@ def load(all_stats, legend):
                 if key == 'Name':
                     # We want the Name column to be a little wider and to have the image of the player
                     # We get the image from the images folder
-                    img_name = '_'.join(row[key].split(' '))
+                    img_name = '_'.join(row[key].split(' ')).replace('ö','o')
                     pdf.image(f'images/{img_name}.png',x=x,y=y,h=row_height)
                     # We print the name of the player
                     pdf.cell(length, h=row_height, txt=str(row[key]), border=1)
@@ -203,8 +209,13 @@ def load(all_stats, legend):
     pdf.cell(0, 3, string[:202], 0, 1)
     string = string[202:]
     pdf.cell(0, 3, string, 0, 1)
-    
-    pdf.output('team_stats.pdf', 'F')
+
+    pdf.ln(8)
+    pdf.set_font('Arial', 'B', 15)
+    pdf.cell(190, 10, 'Predictions', 0, 0, 'C')
+    pdf.ln(5)
+
+    pdf.output(f'{file_name}.pdf', 'F')
 
 if __name__ == '__main__':
     player_stats, team_stats = extract()
