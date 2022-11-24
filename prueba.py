@@ -1,17 +1,22 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
+import requests
+from bs4 import BeautifulSoup
+import re
+import os
 
-df = pd.DataFrame(np.random.random((10,3)), columns = ("col 1", "col 2", "col 3"))
+soup = BeautifulSoup(requests.get('https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/dal/dallas-mavericks').content, 'html.parser')
 
-#https://stackoverflow.com/questions/32137396/how-do-i-plot-only-a-table-in-matplotlib
-fig, ax =plt.subplots(figsize=(12,4))
-ax.axis('tight')
-ax.axis('off')
-the_table = ax.table(cellText=df.values,colLabels=df.columns,loc='center')
+tr = soup.find_all('tr', class_='Table__TR Table__TR--sm Table__even')
+contador = 0
+for i in tr:
+    if contador < 18:
+        print(i.find_all('span')[0].text=='Total')
+        name = '_'.join(i.find_all('a')[0].text.split(' '))
+        id = i.find_all('a')[0].get('data-player-uid').split(':')[-1]
+        link = f'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/{id}.png&w=350&h=254'
+        img = requests.get(link)
+        os.mkdir('images') if not os.path.exists('images') else None
+        open(f'images/{name}.png', 'wb').write(img.content)     
+        contador += 1
 
-#https://stackoverflow.com/questions/4042192/reduce-left-and-right-margins-in-matplotlib-plot
-pp = PdfPages("foo.pdf")
-pp.savefig(fig, bbox_inches='tight')
-pp.close()
+
+
