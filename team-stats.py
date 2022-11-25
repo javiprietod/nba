@@ -65,7 +65,7 @@ def graphs():
 
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
     player_stats = pd.DataFrame(player_stats)
-    player_stats = player_stats.filter(items=['Name', 'Games', 'BlockedShots', 'Minutes', 'Points', 'Rebounds', 'Assists', 'Steals', 'Turnovers'])
+    player_stats = player_stats.filter(items=['Name', 'Points', 'Games', 'BlockedShots', 'Minutes',  'Rebounds', 'Assists', 'Steals', 'Turnovers'])
     player_stats = player_stats.sort_values(by=['Points'], ascending=False)
     points = player_stats.head(5)
     points['Points'] = points['Points'].astype(float)
@@ -127,7 +127,7 @@ def extract():
 def transform(player_stats, team_stats):
     player_stats = pd.DataFrame(player_stats)
     team_stats = pd.DataFrame(team_stats)
-    cols = ['Name', 'Position', 'Minutes', 'Games', 'Points', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'BlockedShots','StealsPercentage', 'PersonalFouls', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveReboundsPercentage','DefensiveReboundsPercentage','TotalReboundsPercentage','ThreePointersPercentage', 'FreeThrowsPercentage', 'PlayerEfficiencyRating']
+    cols = ['Name', 'Position', 'Points', 'Games', 'Minutes', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'BlockedShots','StealsPercentage', 'PersonalFouls', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveReboundsPercentage','DefensiveReboundsPercentage','TotalReboundsPercentage','ThreePointersPercentage', 'FreeThrowsPercentage', 'PlayerEfficiencyRating']
     player_stats = player_stats.filter(items=cols)
     player_stats = player_stats[player_stats['Minutes'] != 0].reset_index(inplace=False, drop=True)
 
@@ -155,32 +155,36 @@ def transform(player_stats, team_stats):
         words = ''.join([word[0] for word in words])
         cols_info[col] = words
     
-    player_stats['Minutes'] = [player_stats['Minutes'][i]/player_stats['Games'][i] if player_stats['Games'][i] != 0 else 0 for i in range(len(player_stats)) ] 
     player_stats['Points'] = [player_stats['Points'][i]/player_stats['Games'][i] if player_stats['Games'][i] != 0 else 0 for i in range(len(player_stats))]
 
     player_stats = player_stats.sort_values(by='Points', ascending=False)
     player_stats = player_stats.rename(columns=cols_info)
     player_stats = player_stats.reset_index(drop=True)
-    player_stats.to_csv('player_stats.csv', index=False)
+    for col in player_stats.columns:
+        if col not in ['Name', 'Pos']:
+            player_stats[col] = player_stats[col].astype(float)
+            
 
-    list_cols = 'StatID Team TeamID SeasonType Season GlobalTeamID GameID BlocksPercentage OpponentID FieldGoalsMade FieldGoalsAttempted TwoPointersMade TwoPointersAttempted ThreePointersMade ThreePointersAttempted Opponent Day DateTime HomeOrAway IsGameOver GlobalGameID GlobalOpponentID Updated Games FantasyPoints Seconds FantasyPointsFanDuel FantasyPointsDraftKings FantasyPointsYahoo PlusMinus DoubleDoubles TripleDoubles FantasyPointsFantasyDraft IsClosed LineupConfirmed LineupStatus PlayerEfficiencyRating'.split(' ')
-    team_stats.drop(columns=list_cols, inplace=True)
-    team_stats = team_stats.rename(columns=cols_info)
+    for colname, col in cols_info.items():
+        if re.search('Percentage$', colname):
+            for i in range(len(player_stats)):
+                if player_stats[col][i] == 119.6:
+                    player_stats[col][i] = 100
+                elif player_stats[col][i] > 100:
+                    player_stats[col][i] = (1/player_stats[col][i])*10000
+                    
     mean = {}
     
-    for col in team_stats.columns:
+    for col in player_stats.columns:
 
         if col in ['Name']:
-            
-            mean[col] = team_stats[col][0]
-
-        elif team_stats[col].dtype == 'O':
+            mean[col] = TEAM
+        elif col in ['Pos']:
+            mean[col] = ''
+        else:
             mean[col] = player_stats[col].mean()
 
-        else:
-            team_stats[col] = team_stats[col].astype(float)
-            mean[col] = team_stats[col].mean()
-
+    
     
     player_stats.loc[len(player_stats)] = mean
     all_stats = player_stats.applymap(lambda x: round(x, 2) if type(x) != str else x)
