@@ -6,8 +6,13 @@ from fpdf import FPDF
 from bs4 import BeautifulSoup
 import os, shutil
 import seaborn as sns
+from bokeh.io import output_notebook, export_png
+from bokeh.plotting import figure,show,output_file,save
+from html2image import Html2Image
+import matplotlib.pyplot as plt
 
 warnings.filterwarnings('ignore')
+
 
 API_KEY = eval(open('config.txt','r').read())['auth']
 TEAM = eval(open('config.txt','r').read())['team']
@@ -37,20 +42,53 @@ def prediction(team):
 
 
 def graphs():
-    pass
+    team_id = TEAMS[TEAM][0]
+    team_key = TEAMS[TEAM][1]
+    team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
 
+    team_stats = pd.DataFrame(team_stats)
+    team_stats = team_stats.filter(items=['Wins','Losses', 'HomeOrAway'])
+    
+    where = ['HOME', 'AWAY']
+    cut = ['Wins', 'Losses']
+    wins = [team_stats[team_stats['HomeOrAway']==where[i]][cut[i]].sum() for i in range(len(where))]
+    losses = [team_stats[team_stats['HomeOrAway']==where[i]][cut[i]].sum() for i in range(len(where))]
+    labels = ['HOME', 'AWAY']
+    width = 0.35       # the width of the bars: can also be len(x) sequence
+    fig, ax = plt.subplots()
+    ax.bar(labels, wins, width,label='Wins', color='#1D428A')
+    ax.bar(labels, losses, width, bottom=wins,
+        label='Losses', color='#E5B70B')
+    ax.set_title('Score by Home/Away')
+    ax.legend()
+    plt.savefig('wins_losses.png')
+
+    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
+    player_stats = pd.DataFrame(player_stats)
+    player_stats = player_stats.filter(items=['Name', 'Games', 'BlockedShots', 'Minutes', 'Points', 'Rebounds', 'Assists', 'Steals', 'Turnovers'])
+    player_stats = player_stats.sort_values(by=['Points'], ascending=False)
+    points = player_stats.head(5)
+    points['Points'] = points['Points'].astype(float)
+    # barplot with the 5 players with more points
+    plt.figure(figsize=(10,5))
+    sns.barplot(x=points['Name'], y=points['Points'], palette='blend:#7AB,#EDA')
+    plt.title('Top 5 players with more points')
+    plt.savefig('top5_pointers.png')
+
+    # barplot with the 5 players with more blocks
+    blocks = player_stats.sort_values(by=['Assists'], ascending=False)
+    blocks = blocks.head(5)
+    blocks['Assists'] = blocks['Assists'].astype(float)
+    plt.figure(figsize=(10,5))
+    sns.barplot(x=blocks['Name'], y=blocks['Assists'], palette='blend:#7AB,#EDA')
+    plt.title('Top 5 players with more assists')
+    plt.savefig('top5_assists.png')
+    
 
 def images():
     team_temp = TEAM.lower().split(' ')
     team = '-'.join(team_temp)
     team_id = TEAMS[TEAM][1].lower()
-
-    opponents = prediction(TEAM)
-    opponent_temp = [opponents[i][0].lower().split(' ') for i in range(len(opponents))]
-    opponent_names = ['-'.join(opponent_temp[i]) for i in range(len(opponent_temp))]
-    opponent_ids = [TEAMS[opponents[i][0]][1].lower() for i in range(len(opponent_temp))]
-    
-
 
     soup = BeautifulSoup(requests.get(f'https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/{team_id}/{team}').content, 'html.parser')
     tr = soup.find_all('tr', class_='Table__TR Table__TR--sm Table__even')
@@ -71,20 +109,13 @@ def images():
     team_logo = '_'.join(team_temp)
     
     open(f'images/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
-    opponent_logos = ['_'.join(opponent_temp[i]) for i in range(len(opponent_temp))]
-    for i in range(len(opponent_names)):
-        open(f'images/{opponent_logos[i]}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{opponent_ids[i]}.png&h=200&w=200').content)
-    
-    return opponents
+
 
 
 def extract():
-    team = eval(open('config.txt','r').read())['team']
-    
-            
-    if team in TEAMS:
-        team_key = TEAMS[team][1]
-        team_id = TEAMS[team][0]
+    if TEAM in TEAMS:
+        team_key = TEAMS[TEAM][1]
+        team_id = TEAMS[TEAM][0]
         player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
         team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
     else:
@@ -165,7 +196,7 @@ def load(all_stats, legend):
     team_name = eval(open('config.txt','r').read())['team']
 
     file_name = '_'.join(team_name.lower().split(' '))
-    opponents = images()
+    images()
     pdf.add_page()
     pdf.image(f'images/{file_name}.png', 5, 4, 20)
     pdf.image(f'images/{file_name}.png', 186, 4, 20)
@@ -223,7 +254,7 @@ def load(all_stats, legend):
                     try:
                         pdf.image(f'images/{img_name}.png',x=x,y=y,h=row_height)
                     except:
-                        pdf.image(f'error.png',x=x-3.4,y=y-0.4,h=row_height*1.16)
+                        pdf.image(f'image/error.png',x=x-3.4,y=y-0.4,h=row_height*1.16)
                     # We print the name of the player
                     pdf.cell(length, h=row_height, txt=str(row[key]), border=1)
                 else:
@@ -242,7 +273,7 @@ def load(all_stats, legend):
     for key, value in legend.items():
         key = ' '.join(re.findall('[A-Z][a-z]*', key))
         string += f'{key}: {value}   '
-    # 
+    
     pdf.set_font('Arial', size=5.5)
     pdf.cell(0, 3, string[:198], 0, 1)
     string = string[198:]
@@ -253,13 +284,41 @@ def load(all_stats, legend):
     pdf.cell(0, 3, string, 0, 1)
     
     pdf.add_page()
+    pdf.image(f'wins_losses.png', 5, 4, 100)
+    
+    pdf.image(f'top5_pointers.png', 5, 74, 170)
 
+    pdf.image(f'top5_assists.png', 5, 160, 170)
+
+    team_key = TEAMS[TEAM][1]
+    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
+    player_stats = pd.DataFrame(player_stats)
+    player_stats = player_stats.filter(items=['Name', 'Points', 'Games'])
+
+    player_stats.sort_values(by='Points', ascending=False, inplace=True)
+    player_stats.reset_index(drop=True, inplace=True)
+    player_stats['PointsPerGame'] = player_stats['Points']/player_stats['Games']
+    player_stats['PointsPerGame'] = player_stats['PointsPerGame'].apply(lambda x: round(x, 2))
+    max_scorer = player_stats.iloc[0]
+    
+    pdf.set_font('Arial', size=14)
+    pdf.image(f'background.png', 110, 20, 75)
+    pdf.cell(120,35, txt='\t'*76 + f'{max_scorer["Name"]}', border=0, align='B')
+    pdf.set_font('Arial', size=8)
+    pdf.cell(-10,50, txt= 'Points per game: ', border=0, align='C')
+    pdf.set_font('Arial', size=18)
+    pdf.cell(53,50, txt= str(max_scorer.PointsPerGame), border=0, align='C')
+    file = max_scorer["Name"].replace(' ', '_').replace('ö', 'o')
+    pdf.image(f'images/{file}.png', 158, 21, 25)
     pdf.output(f'{file_name}.pdf', 'F')
+
 
 if __name__ == '__main__':
     player_stats, team_stats = extract()
+    graphs()
     all_stats, legend = transform(player_stats, team_stats)
     load(all_stats, legend)
+    
     
 
 

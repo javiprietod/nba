@@ -1,1 +1,1 @@
-{'auth': '', 'team': 'Toronto Raptors'}
+{'auth': '', 'team': 'Chicago Bulls'}
