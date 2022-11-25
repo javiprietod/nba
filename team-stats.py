@@ -5,16 +5,53 @@ import warnings
 from fpdf import FPDF
 from bs4 import BeautifulSoup
 import os, shutil
+import seaborn as sns
 
 warnings.filterwarnings('ignore')
 
+API_KEY = eval(open('config.txt','r').read())['auth']
+TEAM = eval(open('config.txt','r').read())['team']
+TEAMS = {t['City'] +' '+ t['Name']:(t['TeamID'],t['Key']) 
+    for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
+
+
+def prediction(team):
+    # We get the matches our team plays
+    soup = BeautifulSoup(requests.get('https://www.sportytrader.es/cuotas/baloncesto/usa/nba-306/').content, 'html.parser')
+    divs = soup.find_all('div', class_='cursor-pointer border rounded-md mb-4 px-1 py-2 flex flex-col lg:flex-row relative')
+    divs_buscados = []
+    for div in divs:
+        onclick = div.get('onclick')
+        if re.search(team.lower().replace(' ','-'), onclick):
+            divs_buscados.append(div)
+
+    # We get the opponents
+    opponents = []
+    for div in divs_buscados:
+        m = div.find_all('a')[0].text.replace('\n','').split(' - ')
+        pred = [div.find_all('span', class_='px-1 h-booklogosm font-bold bg-primary-yellow text-white leading-8 rounded-r-md w-14 md:w-18 flex justify-center items-center text-base')[i].text for i in range(2)]
+
+        info = {float(pred[0]):m[0], float(pred[1]):m[1]}
+        opponents.append((info[float(pred[0])] if info[float(pred[0])] != team else info[float(pred[1])], info[min(info)], 'home' if info[float(pred[0])] == team else 'away'))
+    return opponents
+
+
+def graphs():
+    pass
+
+
 def images():
-    team_temp = eval(open('config.txt','r').read())['team'].lower().split(' ')
+    team_temp = TEAM.lower().split(' ')
     team = '-'.join(team_temp)
-    if len(team_temp) == 2:
-        team_id = team_temp[0][0]  + team_temp[0][1] + team_temp[0][2]
-    else:
-        team_id = team_temp[0][0] + team_temp[1][0] + team_temp[2][0]
+    team_id = TEAMS[TEAM][1].lower()
+
+    opponents = prediction(TEAM)
+    opponent_temp = [opponents[i][0].lower().split(' ') for i in range(len(opponents))]
+    opponent_names = ['-'.join(opponent_temp[i]) for i in range(len(opponent_temp))]
+    opponent_ids = [TEAMS[opponents[i][0]][1].lower() for i in range(len(opponent_temp))]
+    
+
+
     soup = BeautifulSoup(requests.get(f'https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/{team_id}/{team}').content, 'html.parser')
     tr = soup.find_all('tr', class_='Table__TR Table__TR--sm Table__even')
     contador = 0
@@ -30,24 +67,26 @@ def images():
             contador += 1
         else:
             break
+    
     team_logo = '_'.join(team_temp)
     
     open(f'images/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
+    opponent_logos = ['_'.join(opponent_temp[i]) for i in range(len(opponent_temp))]
+    for i in range(len(opponent_names)):
+        open(f'images/{opponent_logos[i]}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{opponent_ids[i]}.png&h=200&w=200').content)
+    
+    return opponents
+
 
 def extract():
     team = eval(open('config.txt','r').read())['team']
-    api_key = eval(open('config.txt','r').read())['auth']
-    response = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={api_key}').json()
-    teams = {}
-    for t in response:
-        if t['Active'] == True:
-            teams[t['City'] +' '+ t['Name']] = (t['TeamID'],t['Key'])
+    
             
-    if team in teams:
-        team_key = teams[team][1]
-        team_id = teams[team][0]
-        player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={api_key}').json()
-        team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={api_key}').json()
+    if team in TEAMS:
+        team_key = TEAMS[team][1]
+        team_id = TEAMS[team][0]
+        player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
+        team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
     else:
         print('Team not found')
         return
@@ -126,7 +165,7 @@ def load(all_stats, legend):
     team_name = eval(open('config.txt','r').read())['team']
 
     file_name = '_'.join(team_name.lower().split(' '))
-    images()
+    opponents = images()
     pdf.add_page()
     pdf.image(f'images/{file_name}.png', 5, 4, 20)
     pdf.image(f'images/{file_name}.png', 186, 4, 20)
@@ -149,7 +188,7 @@ def load(all_stats, legend):
     
     # We get the width of the columns
     row_height = 10
-    col_width = {column: max([len(str(x)) for x in all_stats[column]])+2.2 for column in all_stats.columns}
+    col_width = {column: max([len(str(x)) for x in all_stats[column]])+1.8 for column in all_stats.columns}
     col_width['Name'] = 33
     
     pdf.set_fill_color(235)
@@ -181,7 +220,10 @@ def load(all_stats, legend):
                     # We want the Name column to be a little wider and to have the image of the player
                     # We get the image from the images folder
                     img_name = '_'.join(row[key].split(' ')).replace('ö','o')
-                    pdf.image(f'images/{img_name}.png',x=x,y=y,h=row_height)
+                    try:
+                        pdf.image(f'images/{img_name}.png',x=x,y=y,h=row_height)
+                    except:
+                        pdf.image(f'error.png',x=x-3.4,y=y-0.4,h=row_height*1.16)
                     # We print the name of the player
                     pdf.cell(length, h=row_height, txt=str(row[key]), border=1)
                 else:
@@ -209,11 +251,8 @@ def load(all_stats, legend):
     pdf.cell(0, 3, string[:202], 0, 1)
     string = string[202:]
     pdf.cell(0, 3, string, 0, 1)
-
-    pdf.ln(8)
-    pdf.set_font('Arial', 'B', 15)
-    pdf.cell(190, 10, 'Predictions', 0, 0, 'C')
-    pdf.ln(5)
+    
+    pdf.add_page()
 
     pdf.output(f'{file_name}.pdf', 'F')
 
@@ -221,5 +260,6 @@ if __name__ == '__main__':
     player_stats, team_stats = extract()
     all_stats, legend = transform(player_stats, team_stats)
     load(all_stats, legend)
+    
 
 
