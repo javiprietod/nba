@@ -1,1 +1,1 @@
-{'auth': '', 'team': 'Chicago Bulls'}
+{'auth': '', 'team': 'Golden State Warriors'}

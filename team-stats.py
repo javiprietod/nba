@@ -41,6 +41,7 @@ def prediction(team):
     return opponents
 
 
+
 def graphs():
     team_id = TEAMS[TEAM][0]
     team_key = TEAMS[TEAM][1]
@@ -49,6 +50,8 @@ def graphs():
     team_stats = pd.DataFrame(team_stats)
     team_stats = team_stats.filter(items=['Wins','Losses', 'HomeOrAway'])
     
+    colors = get_colors()
+
     where = ['HOME', 'AWAY']
     cut = ['Wins', 'Losses']
     wins = [team_stats[team_stats['HomeOrAway']==where[i]][cut[i]].sum() for i in range(len(where))]
@@ -56,9 +59,9 @@ def graphs():
     labels = ['HOME', 'AWAY']
     width = 0.35       # the width of the bars: can also be len(x) sequence
     fig, ax = plt.subplots()
-    ax.bar(labels, wins, width,label='Wins', color='#1D428A')
+    ax.bar(labels, wins, width,label='Wins', color=colors[0])
     ax.bar(labels, losses, width, bottom=wins,
-        label='Losses', color='#E5B70B')
+        label='Losses', color=colors[1])
     ax.set_title('Score by Home/Away')
     ax.legend()
     plt.savefig('wins_losses.png')
@@ -71,7 +74,7 @@ def graphs():
     points['Points'] = points['Points'].astype(float)
     # barplot with the 5 players with more points
     plt.figure(figsize=(10,5))
-    sns.barplot(x=points['Name'], y=points['Points'], palette='blend:#7AB,#EDA')
+    plt.bar(x=points['Name'], height=points['Points'], color=colors[0])
     plt.title('Top 5 players with more points')
     plt.savefig('top5_pointers.png')
 
@@ -80,10 +83,11 @@ def graphs():
     blocks = blocks.head(5)
     blocks['Assists'] = blocks['Assists'].astype(float)
     plt.figure(figsize=(10,5))
-    sns.barplot(x=blocks['Name'], y=blocks['Assists'], palette='blend:#7AB,#EDA')
+    plt.bar(x=blocks['Name'], height=blocks['Assists'], color=colors[0])
     plt.title('Top 5 players with more assists')
     plt.savefig('top5_assists.png')
     
+
 
 def images():
     team_temp = TEAM.lower().split(' ')
@@ -112,6 +116,20 @@ def images():
 
 
 
+def get_colors():
+    # https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key=5ecd3d649b5f4b51a6cb172b11cba307
+    teams = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json()
+    team_key = TEAMS[TEAM][1]
+
+    teams = pd.DataFrame(teams)
+    team = teams[teams['Key']==team_key]
+    colors = []
+    colors.append('#' + team['PrimaryColor'].values[0])
+    colors.append('#' + team['SecondaryColor'].values[0])
+    return colors
+
+
+
 def extract():
     if TEAM in TEAMS:
         team_key = TEAMS[TEAM][1]
@@ -120,9 +138,10 @@ def extract():
         team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
     else:
         print('Team not found')
-        return
+        return None, None
     return player_stats, team_stats
     
+
 
 def transform(player_stats, team_stats):
     player_stats = pd.DataFrame(player_stats)
@@ -194,6 +213,7 @@ def transform(player_stats, team_stats):
     return all_stats, cols_info
 
 
+
 def load(all_stats, legend):
     pdf = FPDF()
     # We get the team name from the config.txt file
@@ -201,6 +221,9 @@ def load(all_stats, legend):
 
     file_name = '_'.join(team_name.lower().split(' '))
     images()
+    graphs()
+    colors = get_colors()
+    rgbcolors = [tuple(int(colors[j].lstrip('#')[i:i + len(colors[j].lstrip('#')) // 3], 16) for i in range(0, len(colors[0].lstrip('#')), len(colors[0].lstrip('#')) // 3)) for j in range(2)]
     pdf.add_page()
     pdf.image(f'images/{file_name}.png', 5, 4, 20)
     pdf.image(f'images/{file_name}.png', 186, 4, 20)
@@ -290,9 +313,9 @@ def load(all_stats, legend):
     pdf.add_page()
     pdf.image(f'wins_losses.png', 5, 4, 100)
     
-    pdf.image(f'top5_pointers.png', 5, 74, 170)
+    pdf.image(f'top5_pointers.png', 5, 74, 100)
 
-    pdf.image(f'top5_assists.png', 5, 160, 170)
+    pdf.image(f'top5_assists.png', 5, 124, 100)
 
     team_key = TEAMS[TEAM][1]
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
@@ -307,6 +330,7 @@ def load(all_stats, legend):
     
     pdf.set_font('Arial', size=14)
     pdf.image(f'background.png', 110, 20, 75)
+    pdf.set_text_color(rgbcolors[0][0], rgbcolors[0][1], rgbcolors[0][2])
     pdf.cell(120,35, txt='\t'*76 + f'{max_scorer["Name"]}', border=0, align='B')
     pdf.set_font('Arial', size=8)
     pdf.cell(-10,50, txt= 'Points per game: ', border=0, align='C')
@@ -319,9 +343,10 @@ def load(all_stats, legend):
 
 if __name__ == '__main__':
     player_stats, team_stats = extract()
-    graphs()
-    all_stats, legend = transform(player_stats, team_stats)
-    load(all_stats, legend)
+    if player_stats:  
+        all_stats, legend = transform(player_stats, team_stats)
+        load(all_stats, legend)
+    
     
     
 
