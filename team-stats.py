@@ -6,9 +6,6 @@ from fpdf import FPDF
 from bs4 import BeautifulSoup
 import os, shutil
 import seaborn as sns
-from bokeh.io import output_notebook, export_png
-from bokeh.plotting import figure,show,output_file,save
-from html2image import Html2Image
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings('ignore')
@@ -42,6 +39,33 @@ def prediction(team):
 
 
 
+def hex_to_rgb(hex):
+  rgb = []
+  for i in (0, 2, 4):
+    decimal = int(hex[i:i+2], 16)
+    rgb.append(decimal)
+  
+  return tuple(rgb)
+
+
+
+def rgb_to_hex(r,g,b):
+    return '%02X%02X%02X' % (r,g,b)
+
+
+
+def create_palette(colors, n):
+    rgb_colors = [hex_to_rgb(color.lstrip('#')) for color in colors]
+    diferencias = [(rgb_colors[1][i] - rgb_colors[0][i])/(n-1) for i in range(3)]
+    palette = []
+    for i in range(n):
+        palette.append('#' + rgb_to_hex(int(rgb_colors[0][0] + diferencias[0]*i), int(rgb_colors[0][1] + diferencias[1]*i), int(rgb_colors[0][2] + diferencias[2]*i)))
+
+
+    return palette
+
+
+
 def graphs():
     team_id = TEAMS[TEAM][0]
     team_key = TEAMS[TEAM][1]
@@ -53,18 +77,17 @@ def graphs():
     colors = get_colors()
 
     where = ['HOME', 'AWAY']
-    cut = ['Wins', 'Losses']
-    wins = [team_stats[team_stats['HomeOrAway']==where[i]][cut[i]].sum() for i in range(len(where))]
-    losses = [team_stats[team_stats['HomeOrAway']==where[i]][cut[i]].sum() for i in range(len(where))]
+    wins = [team_stats[team_stats['HomeOrAway']==where[i]]['Wins'].sum() for i in range(len(where))]
+    losses = [team_stats[team_stats['HomeOrAway']==where[i]]['Losses'].sum() for i in range(len(where))]
     labels = ['HOME', 'AWAY']
-    width = 0.35       # the width of the bars: can also be len(x) sequence
+    width = 0.35
     fig, ax = plt.subplots()
     ax.bar(labels, wins, width,label='Wins', color=colors[0])
     ax.bar(labels, losses, width, bottom=wins,
         label='Losses', color=colors[1])
     ax.set_title('Score by Home/Away')
     ax.legend()
-    plt.savefig('wins_losses.png')
+    plt.savefig('images/wins_losses.png')
 
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
     player_stats = pd.DataFrame(player_stats)
@@ -73,20 +96,23 @@ def graphs():
     points = player_stats.head(5)
     points['Points'] = points['Points'].astype(float)
     # barplot with the 5 players with more points
+
+    
+
     plt.figure(figsize=(10,5))
-    plt.bar(x=points['Name'], height=points['Points'], color=colors[0])
+    sns.barplot(x=points['Name'], y=points['Points'], palette=create_palette(colors, len(points['Name'])))
     plt.title('Top 5 players with more points')
-    plt.savefig('top5_pointers.png')
+    plt.savefig('images/top5_pointers.png')
 
     # barplot with the 5 players with more blocks
     blocks = player_stats.sort_values(by=['Assists'], ascending=False)
     blocks = blocks.head(5)
     blocks['Assists'] = blocks['Assists'].astype(float)
     plt.figure(figsize=(10,5))
-    plt.bar(x=blocks['Name'], height=blocks['Assists'], color=colors[0])
+    sns.barplot(x=blocks['Name'], y=blocks['Assists'], palette=create_palette(colors, len(points['Name'])))
     plt.title('Top 5 players with more assists')
-    plt.savefig('top5_assists.png')
-    
+    plt.savefig('images/top5_assists.png')
+
 
 
 def images():
@@ -117,7 +143,6 @@ def images():
 
 
 def get_colors():
-    # https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key=5ecd3d649b5f4b51a6cb172b11cba307
     teams = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json()
     team_key = TEAMS[TEAM][1]
 
@@ -281,7 +306,7 @@ def load(all_stats, legend):
                     try:
                         pdf.image(f'images/{img_name}.png',x=x,y=y,h=row_height)
                     except:
-                        pdf.image(f'image/error.png',x=x-3.4,y=y-0.4,h=row_height*1.16)
+                        pdf.image(f'error.png',x=x-3.4,y=y-0.4,h=row_height*1.16)
                     # We print the name of the player
                     pdf.cell(length, h=row_height, txt=str(row[key]), border=1)
                 else:
@@ -311,11 +336,11 @@ def load(all_stats, legend):
     pdf.cell(0, 3, string, 0, 1)
     
     pdf.add_page()
-    pdf.image(f'wins_losses.png', 5, 4, 100)
+    pdf.image('images/wins_losses.png', 5, 4, 100)
     
-    pdf.image(f'top5_pointers.png', 5, 74, 100)
+    pdf.image('images/top5_pointers.png', 5, 74, 100)
 
-    pdf.image(f'top5_assists.png', 5, 124, 100)
+    pdf.image('images/top5_assists.png', 100, 74, 100)
 
     team_key = TEAMS[TEAM][1]
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
@@ -338,7 +363,93 @@ def load(all_stats, legend):
     pdf.cell(53,50, txt= str(max_scorer.PointsPerGame), border=0, align='C')
     file = max_scorer["Name"].replace(' ', '_').replace('ö', 'o')
     pdf.image(f'images/{file}.png', 158, 21, 25)
+
+
+    pdf.set_text_color(0,0,0)
+    pdf.set_font('Arial', 'B', 5.5)
+    pdf.ln(120)
+    # team ranking
+    team_ranking = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key={API_KEY}').json()
+    team_ranking = pd.DataFrame(team_ranking)
+    conference = team_ranking[team_ranking['Key']==TEAMS[TEAM][1]]['Conference']
+    team_ranking = team_ranking[team_ranking['Conference']==conference.values[0]]
+    team_ranking = team_ranking.sort_values(by=['Percentage'], ascending=False)
+    team_ranking['Name'] = team_ranking['City'] + ' ' + team_ranking['Name']
+    team_ranking['Conf'] = team_ranking['ConferenceWins'].astype(str) + '-' + team_ranking['ConferenceLosses'].astype(str)
+    team_ranking['Home'] = team_ranking['HomeWins'].astype(str) + '-' + team_ranking['HomeLosses'].astype(str)
+    team_ranking['Away'] = team_ranking['AwayWins'].astype(str) + '-' + team_ranking['AwayLosses'].astype(str)
+    team_ranking['L10'] = team_ranking['LastTenWins'].astype(str) + '-' + team_ranking['LastTenLosses'].astype(str)
+    team_ranking.reset_index(drop=True, inplace=True)
+    team_ranking.index = team_ranking.index+1
+
+    # rename columns
+    team_ranking = team_ranking.rename(columns={'Name': 'Team', 'Wins': 'W', 'Losses': 'L', 'Conf': 'Conf', 'Home': 'Home', 'Away': 'Away', 'L10': 'L10', 'Percentage': 'Pct', 'GamesBack': 'GB', 'StreakDescription': 'Strk'})
+    team_ranking = team_ranking.drop(columns=['ConferenceWins', 'ConferenceRank', 'ConferenceLosses', 'DivisionWins', 'DivisionLosses', 'HomeWins', 'HomeLosses', 'AwayWins', 'AwayLosses', 'LastTenWins', 'LastTenLosses', 'TeamID', 'Season', 'GlobalTeamID', 'SeasonType', 'City', 'Conference', 'Division', 'Key', 'DivisionRank', 'PointsPerGameFor', 'PointsPerGameAgainst', 'Streak'])
+    team_ranking = team_ranking[['Team', 'W', 'L', 'Pct', 'GB', 'Conf', 'Home', 'Away', 'L10', 'Strk']]
+
+    
+    shutil.rmtree('logos') if os.path.exists('logos') else None  
+    os.mkdir('logos')
+    for team in team_ranking['Team'].values:
+        team_id = TEAMS[team][1].lower()
+        team_logo = '_'.join(team.lower().split(' '))
+        team_id = 'utah' if team_id == 'uta' else team_id
+        open(f'logos/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
+
+    # Creating the table
+    
+    # We get the width of the columns
+    row_height = 9
+    col_width = {column: 8 for column in team_ranking.columns}
+    col_width['Team'] = 33
+    
+    pdf.set_fill_color(235)
+    fill = True
+
+    # First row
+    for key, length in col_width.items():
+        pdf.cell(length, row_height, str(key), border=1, align='C', fill=fill)
+    pdf.ln(row_height)
+
+    # Setting the x and y for the images
+    x = 32.5
+    y = 139.5
+
+    # We iter through the rows of the dataframe
+    for i, row in team_ranking.iterrows():
+        # We set the fill color to grey to alternate the color of the columns
+        fill = False
+        if row.Team == TEAM:
+            pdf.set_fill_color(175)
+            fill = True
+        else:
+            pdf.set_fill_color(235)
+            
+        # We iter through the column width dictionary, iterating through the columns of the dataframe
+        for key, length in col_width.items():
+            if key == 'Team':
+                # We want the Name column to be a little wider and to have the image of the player
+                # We get the image from the images folder
+                img_name = '_'.join(row[key].split(' ')).replace('ö','o').lower()
+                # We print the name of the player
+                pdf.cell(length, h=row_height, txt=str(row[key]), border=1, fill=fill)
+                pdf.image(f'logos/{img_name}.png',x=x,y=y,h=row_height-1)
+
+            else:
+                # We print the rest of the columns
+                pdf.cell(length, row_height, str(row[key]), border=1, align='C', fill=fill)
+                fill = not fill if row.Team != TEAM else fill # We alternate the fill color
+        # Changing the image position for the next row
+        y += row_height
+        pdf.ln(row_height)
+    
+
+
+
+
+
     pdf.output(f'{file_name}.pdf', 'F')
+
 
 
 if __name__ == '__main__':
@@ -348,6 +459,3 @@ if __name__ == '__main__':
         load(all_stats, legend)
     
     
-    
-
-
