@@ -89,8 +89,10 @@ def graphs():
     ax.legend()
     plt.savefig('images/wins_losses.png')
 
-    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
+    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key={API_KEY}').json()
+    team_key = TEAMS[TEAM][1]
     player_stats = pd.DataFrame(player_stats)
+    player_stats = player_stats[player_stats['Team']==team_key]
     player_stats = player_stats.filter(items=['Name', 'Points', 'Games', 'BlockedShots', 'Minutes',  'Rebounds', 'Assists', 'Steals', 'Turnovers'])
     player_stats = player_stats.sort_values(by=['Points'], ascending=False)
     points = player_stats.head(5)
@@ -157,24 +159,21 @@ def get_colors():
 
 def extract():
     if TEAM in TEAMS:
-        team_key = TEAMS[TEAM][1]
-        team_id = TEAMS[TEAM][0]
-        player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
-        team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
+        player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key={API_KEY}').json()
     else:
         print('Team not found')
-        return None, None
-    return player_stats, team_stats
+        return None
+    return player_stats
     
 
 
-def transform(player_stats, team_stats):
+def transform(player_stats):
+    team_key = TEAMS[TEAM][1]
     player_stats = pd.DataFrame(player_stats)
-    team_stats = pd.DataFrame(team_stats)
+    player_stats = player_stats[player_stats['Team']==team_key]
     cols = ['Name', 'Position', 'Points', 'Games', 'Minutes', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'BlockedShots','StealsPercentage', 'PersonalFouls', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveReboundsPercentage','DefensiveReboundsPercentage','TotalReboundsPercentage','ThreePointersPercentage', 'FreeThrowsPercentage', 'PlayerEfficiencyRating']
     player_stats = player_stats.filter(items=cols)
     player_stats = player_stats[player_stats['Minutes'] != 0].reset_index(inplace=False, drop=True)
-
     cols_info = {}
     for col in cols:
         if col not in ['Name', 'Position']:
@@ -343,8 +342,9 @@ def load(all_stats, legend):
     pdf.image('images/top5_assists.png', 100, 74, 100)
 
     team_key = TEAMS[TEAM][1]
-    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2023/{team_key}?key={API_KEY}').json()
+    player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key={API_KEY}').json()
     player_stats = pd.DataFrame(player_stats)
+    player_stats = player_stats[player_stats['Team'] == team_key]
     player_stats = player_stats.filter(items=['Name', 'Points', 'Games'])
 
     player_stats.sort_values(by='Points', ascending=False, inplace=True)
@@ -401,7 +401,7 @@ def load(all_stats, legend):
     # We get the width of the columns
     row_height = 9
     col_width = {column: 8 for column in team_ranking.columns}
-    col_width['Team'] = 33
+    col_width['Team'] = 35
     
     pdf.set_fill_color(235)
     fill = True
@@ -412,7 +412,7 @@ def load(all_stats, legend):
     pdf.ln(row_height)
 
     # Setting the x and y for the images
-    x = 32.5
+    x = 34.5
     y = 139.5
 
     # We iter through the rows of the dataframe
@@ -453,9 +453,9 @@ def load(all_stats, legend):
 
 
 if __name__ == '__main__':
-    player_stats, team_stats = extract()
+    player_stats = extract()
     if player_stats:  
-        all_stats, legend = transform(player_stats, team_stats)
+        all_stats, legend = transform(player_stats)
         load(all_stats, legend)
     
     
