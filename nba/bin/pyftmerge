@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/nba/bin/python3.11" "$0" "$@"
+'''exec' "/Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/nba/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

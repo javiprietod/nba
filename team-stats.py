@@ -13,8 +13,9 @@ warnings.filterwarnings('ignore')
 
 API_KEY = eval(open('config.txt','r').read())['auth']
 TEAM = eval(open('config.txt','r').read())['team']
-TEAMS = {t['City'] +' '+ t['Name']:(t['TeamID'],t['Key']) 
+TEAMS = {t['City'] +' '+ t['Name']: {'team_id': t['TeamID'],'team_key': t['Key']} 
     for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
+
 
 
 def prediction(team):
@@ -34,7 +35,7 @@ def prediction(team):
         pred = [div.find_all('span', class_='px-1 h-booklogosm font-bold bg-primary-yellow text-white leading-8 rounded-r-md w-14 md:w-18 flex justify-center items-center text-base')[i].text for i in range(2)]
 
         info = {float(pred[0]):m[0], float(pred[1]):m[1]}
-        opponents.append((info[float(pred[0])] if info[float(pred[0])] != team else info[float(pred[1])], info[min(info)], 'home' if info[float(pred[0])] == team else 'away'))
+        opponents.append(info)
     return opponents
 
 
@@ -66,9 +67,112 @@ def create_palette(colors, n):
 
 
 
+def news():
+    team_news = []
+    names = []
+    team_name = TEAM.split(' ')
+    for i in range(1,20):
+        soup = BeautifulSoup(requests.get(f'https://www.rotoballer.com/player-news/page/{i}?sport=nba').content, 'html.parser')
+        titles = soup.find_all('h4', class_=f'widget-title teamLogo {team_name[-1].lower()}bg')
+        newso = soup.find_all('div', class_='newsdeskContentEntry')
+        news = []
+        for n in newso:
+            x = re.search('ago', n.text)
+            y = re.search('--', n.text)
+            text = n.text[x.end():y.start()]
+            if text.split()[0] == team_name[0]:
+                news.append(text)
+        for i in range(len(titles)):
+            if len(team_news) < 5:
+                name_temp = re.split(',| ', titles[i].text)
+                name = name_temp[0] + ' ' + name_temp[1]
+                if name not in names:
+                    team_news.append((titles[i].text, news[i]))
+                    names.append(name)
+            else:
+                break
+        if len(team_news) == 5:
+            break
+    return team_news, names
+
+
+
+def coming_up():
+    team = TEAMS[TEAM]['team_key']
+    # We load the info from the API and take the important columns
+    team_schedule = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/Games/2023?key={API_KEY}').json()
+    team_schedule = pd.DataFrame(team_schedule)
+    team_schedule = team_schedule[['HomeTeam', 'AwayTeam', 'DateTimeUTC', 'StadiumID']]
+
+    # Filter by our team and the coming up games
+    team_schedule = team_schedule[(team_schedule['HomeTeam'] == team) | (team_schedule['AwayTeam'] == team)]
+    team_schedule['DateTimeUTC'] = pd.to_datetime(team_schedule['DateTimeUTC'])
+    team_schedule = team_schedule.sort_values(by='DateTimeUTC')
+    team_schedule = team_schedule[team_schedule['DateTimeUTC'] >= pd.to_datetime('today')]
+    team_schedule = team_schedule.reset_index(drop=True)
+    # Now we take a look at the stadiums and get the most important information
+    stadiums = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/Stadiums?key={API_KEY}').json()
+    stadiums = pd.DataFrame(stadiums)
+    stadiums = stadiums[['StadiumID', 'Name', 'City', 'State']]
+    team_schedule = team_schedule.head(4)
+    team_schedule.insert(4, 'Control', '')
+    team_ranking = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key={API_KEY}').json()
+    team_ranking = pd.DataFrame(team_ranking)
+    team_ranking = team_ranking[['Key', 'Wins', 'Losses', 'HomeWins', 'HomeLosses','AwayWins', 'AwayLosses', 'Streak']]
+    for i in range(len(team_schedule)):
+        
+        stad_num = team_schedule['StadiumID'][i]
+        stad_info = stadiums[stadiums['StadiumID']==int(stad_num)]
+        stad_info = [stad_info['Name'].values[0], stad_info['City'].values[0], stad_info['State'].values[0]]
+        if stad_info[2] == None:
+            stad_info = stad_info[0] + ', ' + stad_info[1]
+        else:
+            stad_info = stad_info[0] + ', ' + stad_info[1] + ', ' + stad_info[2]
+        team_schedule['StadiumID'][i] = stad_info
+
+        if team_schedule['HomeTeam'][i] == team:
+            other_team = team_schedule['AwayTeam'][i]
+            for t in TEAMS:
+                if TEAMS[t]['team_key'] == other_team:
+                    team_schedule['AwayTeam'][i] = t
+                    break
+            team_schedule['HomeTeam'][i] = TEAM
+            team_schedule['Control'][i] = 'Home'
+        else:
+            other_team = team_schedule['HomeTeam'][i]
+            for t in TEAMS:
+                if TEAMS[t]['team_key'] == other_team:
+                    team_schedule['HomeTeam'][i] = t
+                    break
+            team_schedule['AwayTeam'][i] = TEAM
+            team_schedule['Control'][i] = 'Away'
+        for t in TEAMS:
+            if TEAMS[t]['team_key'] == other_team:
+                other_team_name = t.lower().replace(' ', '_')
+                break
+        
+        open(f'logos/{other_team_name}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{other_team.lower()}.png&h=200&w=200').content)
+        
+        team_stats = team_ranking[team_ranking['Key']==team]
+        team_stats = [team_stats['Wins'].values[0], team_stats['Losses'].values[0], team_stats['HomeWins'].values[0], team_stats['HomeLosses'].values[0], team_stats['Streak'].values[0]] if team_schedule['Control'][0] == 'Home' else [team_stats['Wins'].values[0], team_stats['Losses'].values[0], team_stats['AwayWins'].values[0], team_stats['AwayLosses'].values[0], team_stats['Streak'].values[0]]
+        other_team_stats = team_ranking[team_ranking['Key']==other_team]
+        other_team_stats = [other_team_stats['Wins'].values[0], other_team_stats['Losses'].values[0], other_team_stats['HomeWins'].values[0], other_team_stats['HomeLosses'].values[0], other_team_stats['Streak'].values[0]] if team_schedule['Control'][0] == 'Away' else [other_team_stats['Wins'].values[0], other_team_stats['Losses'].values[0], other_team_stats['AwayWins'].values[0], other_team_stats['AwayLosses'].values[0], other_team_stats['Streak'].values[0]]
+        if i == 0:
+            team_schedule.insert(5, 'Homeinfo', '')
+            team_schedule.insert(6, 'Awayinfo', '')
+            if team_schedule['Control'][i] == 'Home':
+                team_schedule['Homeinfo'][i] = [str(team_stats[j]) for j in range(len(team_stats))]
+                team_schedule['Awayinfo'][i] = [str(other_team_stats[j]) for j in range(len(other_team_stats))]
+            else:
+                team_schedule['Homeinfo'][i] = [str(other_team_stats[j]) for j in range(len(other_team_stats))]
+                team_schedule['Awayinfo'][i] = [str(team_stats[j]) for j in range(len(team_stats))]
+
+    return team_schedule
+
+
+
 def graphs():
-    team_id = TEAMS[TEAM][0]
-    team_key = TEAMS[TEAM][1]
+    team_id = TEAMS[TEAM]['team_id']
     team_stats = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/TeamGameStatsBySeason/2023/{team_id}/all?key={API_KEY}').json()
 
     team_stats = pd.DataFrame(team_stats)
@@ -82,7 +186,7 @@ def graphs():
     labels = ['HOME', 'AWAY']
     width = 0.35
     fig, ax = plt.subplots()
-    ax.bar(labels, wins, width,label='Wins', color=colors[0])
+    ax.bar(labels, wins, width,label='Wins', color=colors)
     ax.bar(labels, losses, width, bottom=wins,
         label='Losses', color=colors[1])
     ax.set_title('Score by Home/Away')
@@ -90,9 +194,9 @@ def graphs():
     plt.savefig('images/wins_losses.png')
 
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key={API_KEY}').json()
-    team_key = TEAMS[TEAM][1]
+    team = TEAMS[TEAM]['team_key']
     player_stats = pd.DataFrame(player_stats)
-    player_stats = player_stats[player_stats['Team']==team_key]
+    player_stats = player_stats[player_stats['Team']==team]
     player_stats = player_stats.filter(items=['Name', 'Points', 'Games', 'BlockedShots', 'Minutes',  'Rebounds', 'Assists', 'Steals', 'Turnovers'])
     player_stats = player_stats.sort_values(by=['Points'], ascending=False)
     points = player_stats.head(5)
@@ -120,9 +224,9 @@ def graphs():
 def images():
     team_temp = TEAM.lower().split(' ')
     team = '-'.join(team_temp)
-    team_id = TEAMS[TEAM][1].lower()
-
-    soup = BeautifulSoup(requests.get(f'https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/{team_id}/{team}').content, 'html.parser')
+    team_key = TEAMS[TEAM]['team_key'].lower()
+    team_key = 'utah' if team_key == 'uta' else team_key
+    soup = BeautifulSoup(requests.get(f'https://espndeportes.espn.com/basquetbol/nba/equipo/estadisticas/_/nombre/{team_key}/{team}').content, 'html.parser')
     tr = soup.find_all('tr', class_='Table__TR Table__TR--sm Table__even')
     contador = 0
     shutil.rmtree('images') if os.path.exists('images') else None  
@@ -140,13 +244,13 @@ def images():
     
     team_logo = '_'.join(team_temp)
     
-    open(f'images/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
+    open(f'images/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_key}.png&h=200&w=200').content)
 
 
 
 def get_colors():
     teams = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json()
-    team_key = TEAMS[TEAM][1]
+    team_key = TEAMS[TEAM]['team_key']
 
     teams = pd.DataFrame(teams)
     team = teams[teams['Key']==team_key]
@@ -168,7 +272,7 @@ def extract():
 
 
 def transform(player_stats):
-    team_key = TEAMS[TEAM][1]
+    team_key = TEAMS[TEAM]['team_key']
     player_stats = pd.DataFrame(player_stats)
     player_stats = player_stats[player_stats['Team']==team_key]
     cols = ['Name', 'Position', 'Points', 'Games', 'Minutes', 'Rebounds', 'Assists', 'AssistsPercentage','Steals', 'BlockedShots','StealsPercentage', 'PersonalFouls', 'TurnOversPercentage', 'UsageRatePercentage', 'Turnovers', 'FieldGoalsPercentage', 'EffectiveFieldGoalsPercentage', 'TwoPointersPercentage', 'TrueShootingPercentage','OffensiveReboundsPercentage','DefensiveReboundsPercentage','TotalReboundsPercentage','ThreePointersPercentage', 'FreeThrowsPercentage', 'PlayerEfficiencyRating']
@@ -233,7 +337,7 @@ def transform(player_stats):
     all_stats = player_stats.applymap(lambda x: round(x, 2) if type(x) != str else x)
     all_stats.fillna(' ', inplace=True)
     
-    all_stats.to_csv('all_stats.csv', index=False)
+    
     return all_stats, cols_info
 
 
@@ -341,11 +445,11 @@ def load(all_stats, legend):
 
     pdf.image('images/top5_assists.png', 100, 74, 100)
 
-    team_key = TEAMS[TEAM][1]
+    team_key = TEAMS[TEAM]['team_key']
     player_stats = requests.get(f'https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key={API_KEY}').json()
     player_stats = pd.DataFrame(player_stats)
     player_stats = player_stats[player_stats['Team'] == team_key]
-    player_stats = player_stats.filter(items=['Name', 'Points', 'Games'])
+    player_stats = player_stats.filter(items=['Name', 'Points', 'Games', 'Assists'])
 
     player_stats.sort_values(by='Points', ascending=False, inplace=True)
     player_stats.reset_index(drop=True, inplace=True)
@@ -364,14 +468,34 @@ def load(all_stats, legend):
     file = max_scorer["Name"].replace(' ', '_').replace('ö', 'o')
     pdf.image(f'images/{file}.png', 158, 21, 25)
 
+    pdf.ln(0.6)
+
+    player_stats.sort_values(by='Assists', ascending=False, inplace=True)
+    player_stats.reset_index(drop=True, inplace=True)
+    player_stats['AssistsPerGame'] = player_stats['Assists']/player_stats['Games']
+    player_stats['AssistsPerGame'] = player_stats['AssistsPerGame'].apply(lambda x: round(x, 2))
+    max_scorer = player_stats.iloc[0]
+    
+    pdf.set_font('Arial', size=14)
+    pdf.image(f'background.png', 110, 48, 75)
+    pdf.set_text_color(rgbcolors[0][0], rgbcolors[0][1], rgbcolors[0][2])
+    pdf.cell(120,90, txt='\t'*76 + f'{max_scorer["Name"]}', border=0, align='B')
+    pdf.set_font('Arial', size=8)
+    pdf.cell(-10,105, txt= 'Assists per game: ', border=0, align='C')
+    pdf.set_font('Arial', size=18)
+    pdf.cell(53,105, txt= str(max_scorer.AssistsPerGame), border=0, align='C')
+    file = max_scorer["Name"].replace(' ', '_').replace('ö', 'o')
+    pdf.image(f'images/{file}.png', 158, 49, 25)
+
 
     pdf.set_text_color(0,0,0)
     pdf.set_font('Arial', 'B', 5.5)
     pdf.ln(120)
+    pdf.cell(40)
     # team ranking
     team_ranking = requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/Standings/2023?key={API_KEY}').json()
     team_ranking = pd.DataFrame(team_ranking)
-    conference = team_ranking[team_ranking['Key']==TEAMS[TEAM][1]]['Conference']
+    conference = team_ranking[team_ranking['Key']==TEAMS[TEAM]['team_key']]['Conference']
     team_ranking = team_ranking[team_ranking['Conference']==conference.values[0]]
     team_ranking = team_ranking.sort_values(by=['Percentage'], ascending=False)
     team_ranking['Name'] = team_ranking['City'] + ' ' + team_ranking['Name']
@@ -391,7 +515,7 @@ def load(all_stats, legend):
     shutil.rmtree('logos') if os.path.exists('logos') else None  
     os.mkdir('logos')
     for team in team_ranking['Team'].values:
-        team_id = TEAMS[team][1].lower()
+        team_id = TEAMS[team]['team_key'].lower()
         team_logo = '_'.join(team.lower().split(' '))
         team_id = 'utah' if team_id == 'uta' else team_id
         open(f'logos/{team_logo}.png', 'wb').write(requests.get(f'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{team_id}.png&h=200&w=200').content)
@@ -412,8 +536,8 @@ def load(all_stats, legend):
     pdf.ln(row_height)
 
     # Setting the x and y for the images
-    x = 34.5
-    y = 139.5
+    x = 75
+    y = 140
 
     # We iter through the rows of the dataframe
     for i, row in team_ranking.iterrows():
@@ -432,22 +556,88 @@ def load(all_stats, legend):
                 # We get the image from the images folder
                 img_name = '_'.join(row[key].split(' ')).replace('ö','o').lower()
                 # We print the name of the player
+                pdf.cell(40)
                 pdf.cell(length, h=row_height, txt=str(row[key]), border=1, fill=fill)
                 pdf.image(f'logos/{img_name}.png',x=x,y=y,h=row_height-1)
 
             else:
                 # We print the rest of the columns
+
                 pdf.cell(length, row_height, str(row[key]), border=1, align='C', fill=fill)
                 fill = not fill if row.Team != TEAM else fill # We alternate the fill color
         # Changing the image position for the next row
         y += row_height
         pdf.ln(row_height)
+
+    pdf.add_page()
     
+    matches = coming_up()
+    pdf.set_font('Arial', 'B', 20)
+    pdf.set_text_color(29,66,138)
+    pdf.cell(190, 10, 'COMING UP MATCHES', 0, 0, 'C')
+    pdf.ln(20)
+    pdf.set_text_color(0,0,0)
+    
+    for i in range(4):
+        pdf.set_font('Arial', 'B', 16)
+        team00 = matches['HomeTeam'][i].split(' ')[-1] 
+        team01 = matches['AwayTeam'][i].split(' ')[-1]
+        if i == 0:
+            info00 = '-'.join(matches['Homeinfo'][i][0:2])
+            info01 = '-'.join(matches['Awayinfo'][i][0:2])
+        match0 = (18-len(team00)-len(info00))*' ' + f'({info00}) ' + team00 + ' vs. ' + team01 + f' ({info01})' + (18-len(team01)-len(info01))*' ' if i == 0 else (12-len(team00))*' ' + team00 + ' vs. ' + team01 + (12-len(team01))*' '
+        loc0 = matches['StadiumID'][i]
+        img00 = matches['HomeTeam'][i].lower().replace(' ','_')
+        img01 = matches['AwayTeam'][i].lower().replace(' ','_')
+        pdf.image(f'logos/{img00}.png',x=10,y=pdf.get_y(),h=40)
+        pdf.image(f'logos/{img01}.png',x=160,y=pdf.get_y(),h=40)
+        pdf.cell(194,10, f'{match0}', 0, 0, 'C')
+        pdf.ln(10)
+        pdf.set_font('Arial', '', 14)
+        pdf.cell(194,10, f'{loc0}', 0, 0, 'C')
+        pdf.ln(10)
+        day = {0:'Monday', 1:'Tuesday', 2:'Wednesday', 3:'Thursday', 4:'Friday', 5:'Saturday', 6:'Sunday'}
+        month = {1:'January', 2:'February', 3:'March', 4:'April', 5:'May', 6:'June', 7:'July', 8:'August', 9:'September', 10:'October', 11:'November', 12:'December'}
+        date0 = day[matches['DateTimeUTC'][i].weekday()] + ', ' + str(matches['DateTimeUTC'][i].day) + ' ' + month[matches['DateTimeUTC'][i].month]
+        pdf.cell(194,10, f'{date0}', 0, 0, 'C')
+        pdf.ln(10)
+        time0 = matches['DateTimeUTC'][i].strftime('%H:%M%p')
+        pdf.cell(194,10, f'{time0}', 0, 0, 'C')
+        pdf.ln(6)
+        if i == 0:
+            pdf.set_font('Arial', 'B', 14)
+            streak00 = 'W' + matches['Homeinfo'][i][4] if int(matches['Homeinfo'][i][4]) > 0 else 'L' + str(abs(int(matches['Homeinfo'][i][4])))
+            streak01 = 'W' + matches['Awayinfo'][i][4] if int(matches['Awayinfo'][i][4]) > 0 else 'L' + str(abs(int(matches['Awayinfo'][i][4])))
+            info00 = 'HOME: '+'-'.join(matches['Homeinfo'][i][2:4]) + ' (' + streak00 + ')'
+            info01 = 'AWAY: '+'-'.join(matches['Awayinfo'][i][2:4]) + ' (' + streak01 + ')'
+            pdf.cell(42, 15, f'{info00}', 0, 0, 'C')
+            pdf.cell(256, 15, f'{info01}', 0, 0, 'C')
+        pdf.ln(30)
 
 
-
-
-
+    pdf.add_page()
+    noticias, nombres = news()
+    pdf.set_font('Arial', 'B', 20)
+    pdf.set_text_color(29,66,138)
+    pdf.cell(190, 10, 'LATEST NEWS', 0, 0, 'C')
+    pdf.ln(15)
+    pdf.set_text_color(0,0,0)
+    
+    for noticia, nombre in zip(noticias, nombres):
+        nom = '_'.join(nombre.split(' '))
+        try:
+            pdf.image(f'images/{nom}.png',x=10,y=pdf.get_y()-5,h=18)
+        except:
+            pdf.image('error.png',x=6.5,y=pdf.get_y()-5,h=18)
+        pdf.set_font('Arial', 'B', 14)
+        pdf.cell(25)
+        pdf.cell(25,10, f'{noticia[0]}', 0, 0, 'L')
+        pdf.set_font('Arial', '', 11)
+        pdf.ln(15)
+        pdf.multi_cell(190, 5, f'{noticia[1]}', 0)
+        pdf.ln(6)
+        
+    
     pdf.output(f'{file_name}.pdf', 'F')
 
 

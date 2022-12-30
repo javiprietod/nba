@@ -12,12 +12,13 @@ def prediction(team):
             print(onclick)
             divs_buscados.append(div)
 
-    opponents = []
+    # opponents = []
     for div in divs_buscados:
         m = div.find_all('a')[0].text.replace('\n','').split(' - ')
         pred = [div.find_all('span', class_='px-1 h-booklogosm font-bold bg-primary-yellow text-white leading-8 rounded-r-md w-14 md:w-18 flex justify-center items-center text-base')[i].text for i in range(2)]
 
         info = {float(pred[0]):m[0], float(pred[1]):m[1]}
-        opponents.append((info[float(pred[0]) if info[float(pred[0])] != team else info[float(pred[1])]]), info[min(info)])
+        #opponents.append((info[float(pred[0]) if info[float(pred[0])] != team else info[float(pred[1])]]), info[min(info)])
+    return info
 
-
+print(prediction('Golden State Warriors'))
