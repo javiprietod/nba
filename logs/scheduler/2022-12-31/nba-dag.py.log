@@ -1,0 +1,457 @@
+[2022-12-31T20:28:44.810+0100] {processor.py:153} INFO - Started process (PID=90119) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:28:44.814+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:28:44.814+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:44.814+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:28:45.823+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:28:46.235+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.235+0100] {manager.py:504} INFO - Created Permission View: can read on DAG:nba-dag
+[2022-12-31T20:28:46.237+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.237+0100] {manager.py:504} INFO - Created Permission View: can delete on DAG:nba-dag
+[2022-12-31T20:28:46.238+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.238+0100] {manager.py:504} INFO - Created Permission View: can edit on DAG:nba-dag
+[2022-12-31T20:28:46.239+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.239+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:28:46.242+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.242+0100] {dag.py:2697} INFO - Creating ORM DAG for nba-dag
+[2022-12-31T20:28:46.244+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:28:46.244+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:28:46.250+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.441 seconds
+[2022-12-31T20:30:08.666+0100] {processor.py:153} INFO - Started process (PID=90289) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:08.668+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:30:08.669+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:08.669+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:09.747+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:10.154+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:10.154+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:30:10.162+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:10.162+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:30:10.170+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.506 seconds
+[2022-12-31T20:30:36.973+0100] {processor.py:153} INFO - Started process (PID=90350) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:36.976+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:30:36.976+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:36.976+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:37.965+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:30:38.342+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:38.342+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:30:38.347+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:30:38.347+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:30:38.354+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.382 seconds
+[2022-12-31T20:32:00.034+0100] {processor.py:153} INFO - Started process (PID=90480) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:00.039+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:32:00.039+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:00.039+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:01.150+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:01.542+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:01.542+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:32:01.548+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:01.548+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:32:01.556+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.522 seconds
+[2022-12-31T20:32:50.890+0100] {processor.py:153} INFO - Started process (PID=90546) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:50.895+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:32:50.895+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:50.895+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:51.847+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:32:52.223+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:52.223+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:32:52.229+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:32:52.229+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:32:52.237+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.347 seconds
+[2022-12-31T20:33:44.557+0100] {processor.py:153} INFO - Started process (PID=90617) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:33:44.560+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:33:44.560+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:33:44.560+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:33:45.597+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:33:46.100+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:33:46.100+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:33:46.106+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:33:46.106+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:33:46.113+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.558 seconds
+[2022-12-31T20:34:38.479+0100] {processor.py:153} INFO - Started process (PID=90699) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:34:38.483+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:34:38.483+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:34:38.483+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:34:39.415+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:34:39.796+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:34:39.795+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:34:39.802+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:34:39.802+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:34:39.810+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.332 seconds
+[2022-12-31T20:35:19.675+0100] {processor.py:153} INFO - Started process (PID=90765) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:35:19.679+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:35:19.679+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:35:19.679+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:35:20.623+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:35:21.013+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:35:21.013+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:35:21.019+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:35:21.019+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:35:21.028+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.353 seconds
+[2022-12-31T20:36:42.371+0100] {processor.py:153} INFO - Started process (PID=90885) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:36:42.377+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:36:42.378+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:36:42.377+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:36:43.414+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:36:43.801+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:36:43.801+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:36:43.808+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:36:43.808+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:36:43.814+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.444 seconds
+[2022-12-31T20:37:33.892+0100] {processor.py:153} INFO - Started process (PID=90952) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:37:33.898+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:37:33.898+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:37:33.898+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:37:34.857+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:37:35.231+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:37:35.231+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:37:35.237+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:37:35.237+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:37:35.244+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.353 seconds
+[2022-12-31T20:38:23.865+0100] {processor.py:153} INFO - Started process (PID=91018) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:38:23.868+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:38:23.869+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:38:23.869+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:38:24.891+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:38:25.262+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:38:25.262+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:38:25.268+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:38:25.268+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:38:25.275+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.410 seconds
+[2022-12-31T20:39:15.508+0100] {processor.py:153} INFO - Started process (PID=91125) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:39:15.516+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:39:15.516+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:39:15.516+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:39:16.396+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:39:16.777+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:39:16.776+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:39:16.782+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:39:16.782+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:39:16.789+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.281 seconds
+[2022-12-31T20:40:08.834+0100] {processor.py:153} INFO - Started process (PID=91209) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:40:08.838+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:40:08.838+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:40:08.838+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:40:09.921+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:40:10.325+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:40:10.325+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:40:10.331+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:40:10.331+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:40:10.340+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.507 seconds
+[2022-12-31T20:41:03.511+0100] {processor.py:153} INFO - Started process (PID=91292) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:03.516+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:41:03.516+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:03.516+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:04.525+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:04.926+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:04.926+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:41:04.932+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:04.932+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:41:04.940+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.429 seconds
+[2022-12-31T20:41:56.912+0100] {processor.py:153} INFO - Started process (PID=91365) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:56.914+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:41:56.915+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:56.915+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:57.957+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:41:58.369+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:58.369+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:41:58.375+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:41:58.375+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:41:58.382+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.470 seconds
+[2022-12-31T20:42:50.358+0100] {processor.py:153} INFO - Started process (PID=91482) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:42:50.363+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:42:50.363+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:42:50.363+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:42:51.295+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:42:51.680+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:42:51.679+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:42:51.685+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:42:51.685+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:42:51.691+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.334 seconds
+[2022-12-31T20:43:41.685+0100] {processor.py:153} INFO - Started process (PID=91575) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:43:41.687+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:43:41.687+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:43:41.687+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:44:05.560+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:44:06.028+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:44:06.028+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:44:06.035+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:44:06.034+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:44:06.042+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 24.358 seconds
+[2022-12-31T20:46:00.520+0100] {processor.py:153} INFO - Started process (PID=91845) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:46:00.522+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:46:00.522+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:46:00.522+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:46:13.205+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:46:13.654+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:46:13.654+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:46:13.660+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:46:13.659+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:46:13.665+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 13.146 seconds
+[2022-12-31T20:48:02.118+0100] {processor.py:153} INFO - Started process (PID=92064) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:48:02.122+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:48:02.122+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:48:02.122+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:48:13.919+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:48:14.309+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:48:14.309+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:48:14.315+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:48:14.315+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:48:14.321+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 12.204 seconds
+[2022-12-31T20:49:58.700+0100] {processor.py:153} INFO - Started process (PID=92313) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:49:58.705+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:49:58.705+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:49:58.705+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:50:14.187+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.7: 'LA Clippers'}
+[2022-12-31T20:50:14.199+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:50:14.773+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:50:14.773+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:50:14.849+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:50:14.848+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T20:25:00+00:00, run_after=2022-12-31T20:25:00+00:00
+[2022-12-31T20:50:14.856+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 16.159 seconds
+[2022-12-31T20:52:29.496+0100] {processor.py:153} INFO - Started process (PID=92681) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:52:29.498+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:52:29.498+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:52:29.498+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:52:40.890+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.7: 'LA Clippers'}
+[2022-12-31T20:52:40.903+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:52:41.614+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:52:41.613+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:52:41.622+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:52:41.622+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2023-01-06T15:00:00+00:00, run_after=2023-01-07T15:00:00+00:00
+[2022-12-31T20:52:41.631+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 12.136 seconds
+[2022-12-31T20:54:34.729+0100] {processor.py:153} INFO - Started process (PID=92992) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:54:34.755+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:54:34.756+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:54:34.755+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:54:46.403+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.7: 'LA Clippers'}
+[2022-12-31T20:54:46.433+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:54:47.145+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:54:47.145+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:54:47.235+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:54:47.235+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2023-01-06T15:00:00+00:00, run_after=2023-01-07T15:00:00+00:00
+[2022-12-31T20:54:47.318+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 12.595 seconds
+[2022-12-31T20:56:01.829+0100] {processor.py:153} INFO - Started process (PID=93226) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:56:01.834+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:56:01.834+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:56:01.834+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:56:03.303+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.7: 'LA Clippers'}
+[2022-12-31T20:56:03.331+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:56:03.951+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:56:03.951+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:56:03.959+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:56:03.959+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2023-01-06T15:00:00+00:00, run_after=2023-01-07T15:00:00+00:00
+[2022-12-31T20:56:03.966+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.137 seconds
+[2022-12-31T20:57:05.999+0100] {processor.py:153} INFO - Started process (PID=93362) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:57:06.006+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:57:06.006+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:57:06.006+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:57:07.376+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T20:57:07.383+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:57:08.089+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:57:08.089+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:57:08.102+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:57:08.102+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2023-01-06T15:00:00+00:00, run_after=2023-01-07T15:00:00+00:00
+[2022-12-31T20:57:08.109+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.111 seconds
+[2022-12-31T20:58:05.028+0100] {processor.py:153} INFO - Started process (PID=93489) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:58:05.031+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:58:05.032+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:58:05.032+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:58:06.603+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.7: 'LA Clippers'}
+[2022-12-31T20:58:06.610+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:58:07.008+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:58:07.008+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:58:07.015+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:58:07.014+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2023-01-06T15:00:00+00:00, run_after=2023-01-07T15:00:00+00:00
+[2022-12-31T20:58:07.021+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.994 seconds
+[2022-12-31T20:59:06.280+0100] {processor.py:153} INFO - Started process (PID=93639) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:59:06.282+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T20:59:06.282+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:59:06.282+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:59:08.510+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T20:59:08.517+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T20:59:09.022+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:59:09.022+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T20:59:09.029+0100] {logging_mixin.py:137} INFO - [2022-12-31T20:59:09.029+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T20:59:09.041+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.762 seconds
+[2022-12-31T21:00:07.630+0100] {processor.py:153} INFO - Started process (PID=93716) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:00:07.637+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:00:07.637+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:00:07.637+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:00:09.147+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:00:09.153+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:00:09.669+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:00:09.669+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:00:09.676+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:00:09.676+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:00:09.685+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.058 seconds
+[2022-12-31T21:01:10.315+0100] {processor.py:153} INFO - Started process (PID=93856) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:01:10.319+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:01:10.319+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:01:10.319+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:01:11.643+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:01:11.652+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:01:12.066+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:01:12.066+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:01:12.072+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:01:12.072+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:01:12.078+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.764 seconds
+[2022-12-31T21:02:10.475+0100] {processor.py:153} INFO - Started process (PID=94067) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:02:10.483+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:02:10.484+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:02:10.484+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:02:11.864+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:02:11.870+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:02:12.300+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:02:12.300+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:02:12.306+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:02:12.306+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:02:12.313+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.839 seconds
+[2022-12-31T21:03:12.922+0100] {processor.py:153} INFO - Started process (PID=94262) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:03:12.927+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:03:12.928+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:03:12.928+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:03:14.523+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:03:14.530+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:03:15.216+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:03:15.215+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:03:15.223+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:03:15.223+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:03:15.231+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.309 seconds
+[2022-12-31T21:04:18.171+0100] {processor.py:153} INFO - Started process (PID=94386) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:04:18.175+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:04:18.175+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:04:18.175+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:04:20.478+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:04:20.484+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:04:20.960+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:04:20.960+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:04:20.968+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:04:20.968+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:04:20.976+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.806 seconds
+[2022-12-31T21:05:17.791+0100] {processor.py:153} INFO - Started process (PID=94519) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:05:17.796+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:05:17.796+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:05:17.796+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:05:19.097+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:05:19.105+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:05:19.521+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:05:19.520+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:05:19.527+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:05:19.526+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:05:19.533+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.743 seconds
+[2022-12-31T21:06:12.458+0100] {processor.py:153} INFO - Started process (PID=94631) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:06:12.461+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:06:12.461+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:06:12.461+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:06:13.635+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:06:13.641+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:06:14.060+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:06:14.060+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:06:14.066+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:06:14.066+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:06:14.072+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.614 seconds
+[2022-12-31T21:07:06.371+0100] {processor.py:153} INFO - Started process (PID=94738) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:07:06.376+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:07:06.376+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:07:06.376+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:07:07.547+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:07:07.554+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:07:07.947+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:07:07.947+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:07:07.953+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:07:07.953+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:07:07.959+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.589 seconds
+[2022-12-31T21:08:03.104+0100] {processor.py:153} INFO - Started process (PID=94891) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:08:03.108+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:08:03.108+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:08:03.108+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:08:04.603+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:08:04.609+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:08:05.136+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:08:05.135+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:08:05.143+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:08:05.143+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:08:05.151+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.050 seconds
+[2022-12-31 20:08:48,036] {scheduler_job.py:182} INFO - Started process (PID=108) to work on /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:08:48,048] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/nba-dag.py for tasks to queue
+[2022-12-31 20:08:48,070] {logging_mixin.py:104} INFO - [2022-12-31 20:08:48,069] {dagbag.py:451} INFO - Filling up the DagBag from /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:08:54,854] {logging_mixin.py:104} INFO - [2022-12-31 20:08:54,848] {dagbag.py:308} ERROR - Failed to import: /opt/airflow/dags/nba-dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 305, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/nba-dag.py", line 4, in <module>
+    import team_stats
+  File "/opt/airflow/plugins/team_stats.py", line 5, in <module>
+    from fpdf import FPDF
+ModuleNotFoundError: No module named 'fpdf'
+[2022-12-31 20:08:54,858] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:08:54,889] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/nba-dag.py took 6.889 seconds
+[2022-12-31T21:09:03.192+0100] {processor.py:153} INFO - Started process (PID=95017) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:09:03.196+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:09:03.197+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:09:03.196+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:09:04.623+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:09:04.631+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:09:05.066+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:09:05.066+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:09:05.073+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:09:05.073+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:09:05.080+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.889 seconds
+[2022-12-31 20:09:25,378] {scheduler_job.py:182} INFO - Started process (PID=176) to work on /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:09:25,383] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/nba-dag.py for tasks to queue
+[2022-12-31 20:09:25,389] {logging_mixin.py:104} INFO - [2022-12-31 20:09:25,388] {dagbag.py:451} INFO - Filling up the DagBag from /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:09:27,629] {logging_mixin.py:104} INFO - [2022-12-31 20:09:27,621] {dagbag.py:308} ERROR - Failed to import: /opt/airflow/dags/nba-dag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 305, in _load_modules_from_file
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/nba-dag.py", line 4, in <module>
+    import team_stats
+  File "/opt/airflow/plugins/team_stats.py", line 5, in <module>
+    from fpdf import FPDF
+ModuleNotFoundError: No module named 'fpdf'
+[2022-12-31 20:09:27,632] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/nba-dag.py
+[2022-12-31 20:09:27,681] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/nba-dag.py took 2.327 seconds
+[2022-12-31T21:10:06.653+0100] {processor.py:153} INFO - Started process (PID=95180) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:10:06.656+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:10:06.656+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:10:06.656+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:10:07.946+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:10:07.955+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:10:08.327+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:10:08.327+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:10:08.333+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:10:08.333+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2021-01-01T00:00:00+00:00, run_after=2021-01-01T00:00:00+00:00
+[2022-12-31T21:10:08.339+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.687 seconds
+[2022-12-31T21:11:05.632+0100] {processor.py:153} INFO - Started process (PID=95373) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:11:05.637+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:11:05.637+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:11:05.637+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:11:07.052+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:11:07.059+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:11:07.573+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:11:07.573+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:11:07.580+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:11:07.580+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:11:07.052908+00:00, run_after=2023-01-01T21:11:07.052908+00:00
+[2022-12-31T21:11:07.588+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.956 seconds
+[2022-12-31T21:12:09.446+0100] {processor.py:153} INFO - Started process (PID=95496) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:12:09.457+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:12:09.457+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:12:09.457+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:12:11.223+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:12:11.232+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:12:11.798+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:12:11.798+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:12:11.822+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:12:11.822+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:12:11.223957+00:00, run_after=2023-01-01T21:12:11.223957+00:00
+[2022-12-31T21:12:11.839+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.394 seconds
+[2022-12-31T21:13:16.534+0100] {processor.py:153} INFO - Started process (PID=95654) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:13:16.540+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:13:16.541+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:13:16.541+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:13:18.009+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:13:18.016+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:13:18.627+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:13:18.627+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:13:18.636+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:13:18.636+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:13:18.010384+00:00, run_after=2023-01-01T21:13:18.010384+00:00
+[2022-12-31T21:13:18.645+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.111 seconds
+[2022-12-31T21:14:19.722+0100] {processor.py:153} INFO - Started process (PID=95785) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:14:19.724+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:14:19.724+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:14:19.724+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:14:21.634+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:14:21.640+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:14:22.105+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:14:22.105+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:14:22.112+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:14:22.112+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:14:21.635143+00:00, run_after=2023-01-01T21:14:21.635143+00:00
+[2022-12-31T21:14:22.119+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.398 seconds
+[2022-12-31T21:15:15.645+0100] {processor.py:153} INFO - Started process (PID=95936) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:15:15.650+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:15:15.650+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:15:15.650+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:15:16.879+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:15:16.886+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:15:17.279+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:15:17.279+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:15:17.285+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:15:17.284+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:15:16.880136+00:00, run_after=2023-01-01T21:15:16.880136+00:00
+[2022-12-31T21:15:17.292+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.648 seconds
+[2022-12-31T21:16:14.059+0100] {processor.py:153} INFO - Started process (PID=96064) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:16:14.066+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:16:14.066+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:16:14.066+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:16:15.370+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:16:15.377+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:16:15.842+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:16:15.841+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:16:15.851+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:16:15.851+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:16:15.370596+00:00, run_after=2023-01-01T21:16:15.370596+00:00
+[2022-12-31T21:16:15.859+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.801 seconds
+[2022-12-31T21:17:05.970+0100] {processor.py:153} INFO - Started process (PID=96147) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:17:05.973+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:17:05.973+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:17:05.973+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:17:07.173+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:17:07.183+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:17:07.580+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:17:07.579+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:17:07.586+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:17:07.586+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:17:07.174244+00:00, run_after=2023-01-01T21:17:07.174244+00:00
+[2022-12-31T21:17:07.592+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.622 seconds
+[2022-12-31T21:17:58.896+0100] {processor.py:153} INFO - Started process (PID=96214) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:17:58.901+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:17:58.902+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:17:58.902+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:18:00.079+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:18:00.086+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:18:00.535+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:18:00.535+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:18:00.541+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:18:00.541+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:18:00.079367+00:00, run_after=2023-01-01T21:18:00.079367+00:00
+[2022-12-31T21:18:00.547+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.652 seconds
+[2022-12-31T21:18:54.813+0100] {processor.py:153} INFO - Started process (PID=96404) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:18:54.815+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:18:54.815+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:18:54.815+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:18:56.115+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:18:56.126+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:18:56.624+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:18:56.624+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:18:56.631+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:18:56.631+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:18:56.115404+00:00, run_after=2023-01-01T21:18:56.115404+00:00
+[2022-12-31T21:18:56.638+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.825 seconds
+[2022-12-31T21:19:57.725+0100] {processor.py:153} INFO - Started process (PID=96518) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:19:57.742+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:19:57.742+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:19:57.742+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:19:59.021+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:19:59.027+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:19:59.412+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:19:59.411+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:19:59.418+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:19:59.418+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:19:59.021352+00:00, run_after=2023-01-01T21:19:59.021352+00:00
+[2022-12-31T21:19:59.424+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.700 seconds
+[2022-12-31T21:20:55.636+0100] {processor.py:153} INFO - Started process (PID=96607) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:20:55.642+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:20:55.642+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:20:55.642+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:20:56.823+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:20:56.829+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:20:57.350+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:20:57.350+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:20:57.355+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:20:57.355+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:20:56.824130+00:00, run_after=2023-01-01T21:20:56.824130+00:00
+[2022-12-31T21:20:57.362+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.727 seconds
+[2022-12-31T21:21:54.286+0100] {processor.py:153} INFO - Started process (PID=96718) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:21:54.294+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:21:54.294+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:21:54.294+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:21:55.736+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:21:55.752+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:21:56.304+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:21:56.304+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:21:56.312+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:21:56.311+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:21:55.736336+00:00, run_after=2023-01-01T21:21:55.736336+00:00
+[2022-12-31T21:21:56.320+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.035 seconds
+[2022-12-31T21:22:51.966+0100] {processor.py:153} INFO - Started process (PID=96795) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:22:51.970+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:22:51.970+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:22:51.970+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:22:53.402+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:22:53.410+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:22:53.826+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:22:53.826+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:22:53.831+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:22:53.831+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:22:53.402415+00:00, run_after=2023-01-01T21:22:53.402415+00:00
+[2022-12-31T21:22:53.837+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.877 seconds
+[2022-12-31T21:23:51.823+0100] {processor.py:153} INFO - Started process (PID=96881) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:23:51.829+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:23:51.829+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:23:51.829+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:23:53.645+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:23:53.653+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:23:54.033+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:23:54.033+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:23:54.039+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:23:54.039+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:23:53.645319+00:00, run_after=2023-01-01T21:23:53.645319+00:00
+[2022-12-31T21:23:54.046+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.224 seconds
+[2022-12-31T21:24:49.139+0100] {processor.py:153} INFO - Started process (PID=97001) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:24:49.142+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:24:49.143+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:24:49.143+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:24:51.241+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:24:51.248+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:24:51.719+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:24:51.718+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:24:51.725+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:24:51.724+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:24:51.241924+00:00, run_after=2023-01-01T21:24:51.241924+00:00
+[2022-12-31T21:24:51.733+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 2.594 seconds
+[2022-12-31T21:25:44.429+0100] {processor.py:153} INFO - Started process (PID=97101) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:25:44.434+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:25:44.434+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:25:44.434+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:25:45.607+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:25:45.615+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:25:46.021+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:25:46.021+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:25:46.026+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:25:46.026+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:25:45.607569+00:00, run_after=2023-01-01T21:25:45.607569+00:00
+[2022-12-31T21:25:46.033+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.605 seconds
+[2022-12-31T21:26:42.339+0100] {processor.py:153} INFO - Started process (PID=97241) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:26:42.342+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:26:42.342+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:26:42.342+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:26:43.625+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:26:43.637+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:26:44.186+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:26:44.185+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:26:44.193+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:26:44.193+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:26:43.625541+00:00, run_after=2023-01-01T21:26:43.625541+00:00
+[2022-12-31T21:26:44.202+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.863 seconds
+[2022-12-31T21:27:41.550+0100] {processor.py:153} INFO - Started process (PID=97352) to work on /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:27:41.558+0100] {processor.py:743} INFO - Processing file /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py for tasks to queue
+[2022-12-31T21:27:41.558+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:27:41.558+0100] {dagbag.py:538} INFO - Filling up the DagBag from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:27:42.808+0100] {logging_mixin.py:137} INFO - {2.3: 'Indiana Pacers', 1.72: 'LA Clippers'}
+[2022-12-31T21:27:42.815+0100] {processor.py:753} INFO - DAG(s) dict_keys(['nba-dag']) retrieved from /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py
+[2022-12-31T21:27:43.199+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:27:43.199+0100] {dag.py:2676} INFO - Sync 1 DAGs
+[2022-12-31T21:27:43.205+0100] {logging_mixin.py:137} INFO - [2022-12-31T21:27:43.205+0100] {dag.py:3423} INFO - Setting next_dagrun for nba-dag to 2022-12-31T21:27:42.808390+00:00, run_after=2023-01-01T21:27:42.808390+00:00
+[2022-12-31T21:27:43.212+0100] {processor.py:175} INFO - Processing /Users/javiprietod/Library/CloudStorage/OneDrive-Personal/Documents/universidad/2º IMAT/Adquisicion/nba-predictions/dags/nba-dag.py took 1.663 seconds

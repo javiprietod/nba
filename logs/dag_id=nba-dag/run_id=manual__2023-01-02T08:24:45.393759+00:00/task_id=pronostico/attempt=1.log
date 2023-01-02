@@ -1,0 +1,32 @@
+[2023-01-02T08:25:26.095+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-02T08:24:45.393759+00:00 [queued]>
+[2023-01-02T08:25:26.101+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-02T08:24:45.393759+00:00 [queued]>
+[2023-01-02T08:25:26.101+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T08:25:26.102+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-02T08:25:26.102+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T08:25:26.109+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): pronostico> on 2023-01-02 08:24:45.393759+00:00
+[2023-01-02T08:25:26.115+0000] {standard_task_runner.py:55} INFO - Started process 75 to run task
+[2023-01-02T08:25:26.119+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'pronostico', 'manual__2023-01-02T08:24:45.393759+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmps9zqxgzu']
+[2023-01-02T08:25:26.120+0000] {standard_task_runner.py:83} INFO - Job 44: Subtask pronostico
+[2023-01-02T08:25:26.179+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.pronostico manual__2023-01-02T08:24:45.393759+00:00 [running]> on host edec3cf45bd6
+[2023-01-02T08:25:26.230+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=pronostico
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-02T08:24:45.393759+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-02T08:24:45.393759+00:00
+[2023-01-02T08:25:26.462+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/pronosticos.py", line 23, in prediction
+    team = 'En el partido entre ' + m[0] + ' y ' + m[1] + ' se pronostica que ' + info[cuota_ganadora].values() + ' gana con una cuota de ' + info[cuota_ganadora]
+AttributeError: 'str' object has no attribute 'values'
+[2023-01-02T08:25:26.479+0000] {taskinstance.py:1327} INFO - Marking task as UP_FOR_RETRY. dag_id=nba-dag, task_id=pronostico, execution_date=20230102T082445, start_date=20230102T082526, end_date=20230102T082526
+[2023-01-02T08:25:26.496+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 44 for task pronostico ('str' object has no attribute 'values'; 75)
+[2023-01-02T08:25:26.538+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-01-02T08:25:26.560+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

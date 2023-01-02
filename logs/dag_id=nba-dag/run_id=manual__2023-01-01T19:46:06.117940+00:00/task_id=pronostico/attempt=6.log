@@ -1,0 +1,32 @@
+[2023-01-01T20:23:47.564+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [queued]>
+[2023-01-01T20:23:47.574+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [queued]>
+[2023-01-01T20:23:47.576+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:23:47.577+0000] {taskinstance.py:1284} INFO - Starting attempt 6 of 6
+[2023-01-01T20:23:47.579+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:23:47.602+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): pronostico> on 2023-01-01 19:46:06.117940+00:00
+[2023-01-01T20:23:47.614+0000] {standard_task_runner.py:55} INFO - Started process 86 to run task
+[2023-01-01T20:23:47.621+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'pronostico', 'manual__2023-01-01T19:46:06.117940+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmpmdzm1pal']
+[2023-01-01T20:23:47.622+0000] {standard_task_runner.py:83} INFO - Job 26: Subtask pronostico
+[2023-01-01T20:23:47.699+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [running]> on host 22057e40c386
+[2023-01-01T20:23:47.807+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=pronostico
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T19:46:06.117940+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-01T19:46:06.117940+00:00
+[2023-01-01T20:23:47.811+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/pronosticos.py", line 6, in prediction
+    team = eval(open('config.txt','r').read())['team']
+FileNotFoundError: [Errno 2] No such file or directory: 'config.txt'
+[2023-01-01T20:23:47.851+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=nba-dag, task_id=pronostico, execution_date=20230101T194606, start_date=20230101T202347, end_date=20230101T202347
+[2023-01-01T20:23:47.882+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 26 for task pronostico ([Errno 2] No such file or directory: 'config.txt'; 86)
+[2023-01-01T20:23:47.914+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-01-01T20:23:47.959+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

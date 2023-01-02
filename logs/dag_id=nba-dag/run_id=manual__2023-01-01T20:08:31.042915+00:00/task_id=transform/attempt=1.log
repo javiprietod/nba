@@ -1,0 +1,24 @@
+[2023-01-01T20:08:46.806+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.transform manual__2023-01-01T20:08:31.042915+00:00 [queued]>
+[2023-01-01T20:08:46.836+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.transform manual__2023-01-01T20:08:31.042915+00:00 [queued]>
+[2023-01-01T20:08:46.838+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:08:46.840+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-01T20:08:46.841+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:08:46.887+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): transform> on 2023-01-01 20:08:31.042915+00:00
+[2023-01-01T20:08:46.948+0000] {standard_task_runner.py:55} INFO - Started process 67 to run task
+[2023-01-01T20:08:46.974+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'transform', 'manual__2023-01-01T20:08:31.042915+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmp6xywiokh']
+[2023-01-01T20:08:46.983+0000] {standard_task_runner.py:83} INFO - Job 13: Subtask transform
+[2023-01-01T20:08:47.148+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.transform manual__2023-01-01T20:08:31.042915+00:00 [running]> on host 8bde35a245c7
+[2023-01-01T20:08:47.334+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=transform
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T20:08:31.042915+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-01T20:08:31.042915+00:00
+[2023-01-01T20:08:47.441+0000] {logging_mixin.py:137} INFO - DATA TRANSFORMED
+[2023-01-01T20:08:47.442+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-01-01T20:08:47.457+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=nba-dag, task_id=transform, execution_date=20230101T200831, start_date=20230101T200846, end_date=20230101T200847
+[2023-01-01T20:08:47.523+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-01-01T20:08:47.595+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

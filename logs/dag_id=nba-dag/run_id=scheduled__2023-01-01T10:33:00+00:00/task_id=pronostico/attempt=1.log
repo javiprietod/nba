@@ -1,0 +1,23 @@
+[2023-01-02T10:33:36.328+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico scheduled__2023-01-01T10:33:00+00:00 [queued]>
+[2023-01-02T10:33:36.334+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico scheduled__2023-01-01T10:33:00+00:00 [queued]>
+[2023-01-02T10:33:36.335+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T10:33:36.335+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-02T10:33:36.336+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T10:33:36.345+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): pronostico> on 2023-01-01 10:33:00+00:00
+[2023-01-02T10:33:36.359+0000] {standard_task_runner.py:55} INFO - Started process 68 to run task
+[2023-01-02T10:33:36.367+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'pronostico', 'scheduled__2023-01-01T10:33:00+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmp84195dwt']
+[2023-01-02T10:33:36.369+0000] {standard_task_runner.py:83} INFO - Job 90: Subtask pronostico
+[2023-01-02T10:33:36.464+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.pronostico scheduled__2023-01-01T10:33:00+00:00 [running]> on host 64c425265806
+[2023-01-02T10:33:36.522+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=pronostico
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T10:33:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-01T10:33:00+00:00
+[2023-01-02T10:33:37.924+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-01-02T10:33:37.933+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=nba-dag, task_id=pronostico, execution_date=20230101T103300, start_date=20230102T103336, end_date=20230102T103337
+[2023-01-02T10:33:37.975+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-01-02T10:33:38.004+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

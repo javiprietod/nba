@@ -1,0 +1,23 @@
+[2023-01-02T08:48:16.747+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.extract scheduled__2023-01-01T08:48:13.316846+00:00 [queued]>
+[2023-01-02T08:48:16.752+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.extract scheduled__2023-01-01T08:48:13.316846+00:00 [queued]>
+[2023-01-02T08:48:16.753+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T08:48:16.753+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-02T08:48:16.754+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-02T08:48:16.764+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): extract> on 2023-01-01 08:48:13.316846+00:00
+[2023-01-02T08:48:16.773+0000] {standard_task_runner.py:55} INFO - Started process 57 to run task
+[2023-01-02T08:48:16.780+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'extract', 'scheduled__2023-01-01T08:48:13.316846+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmph29lr2z4']
+[2023-01-02T08:48:16.782+0000] {standard_task_runner.py:83} INFO - Job 54: Subtask extract
+[2023-01-02T08:48:16.880+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.extract scheduled__2023-01-01T08:48:13.316846+00:00 [running]> on host 5aae96bd5c09
+[2023-01-02T08:48:16.968+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T08:48:13.316846+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-01T08:48:13.316846+00:00
+[2023-01-02T08:48:20.719+0000] {python.py:177} INFO - Done. Returned value was: DATA EXTRACTED
+[2023-01-02T08:48:20.759+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=nba-dag, task_id=extract, execution_date=20230101T084813, start_date=20230102T084816, end_date=20230102T084820
+[2023-01-02T08:48:20.818+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-01-02T08:48:20.855+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

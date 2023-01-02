@@ -1,0 +1,30 @@
+[2023-01-01T20:13:41.088+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [queued]>
+[2023-01-01T20:13:41.100+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [queued]>
+[2023-01-01T20:13:41.101+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:13:41.101+0000] {taskinstance.py:1284} INFO - Starting attempt 4 of 6
+[2023-01-01T20:13:41.101+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:13:41.111+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): pronostico> on 2023-01-01 19:46:06.117940+00:00
+[2023-01-01T20:13:41.120+0000] {standard_task_runner.py:55} INFO - Started process 58 to run task
+[2023-01-01T20:13:41.125+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'pronostico', 'manual__2023-01-01T19:46:06.117940+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmpxgjznt1t']
+[2023-01-01T20:13:41.127+0000] {standard_task_runner.py:83} INFO - Job 16: Subtask pronostico
+[2023-01-01T20:13:41.201+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.pronostico manual__2023-01-01T19:46:06.117940+00:00 [running]> on host 6f6d58c7a637
+[2023-01-01T20:13:41.270+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=pronostico
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T19:46:06.117940+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-01T19:46:06.117940+00:00
+[2023-01-01T20:13:41.271+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: prediction() missing 1 required positional argument: 'team'
+[2023-01-01T20:13:41.280+0000] {taskinstance.py:1327} INFO - Marking task as UP_FOR_RETRY. dag_id=nba-dag, task_id=pronostico, execution_date=20230101T194606, start_date=20230101T201341, end_date=20230101T201341
+[2023-01-01T20:13:41.289+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 16 for task pronostico (prediction() missing 1 required positional argument: 'team'; 58)
+[2023-01-01T20:13:41.338+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2023-01-01T20:13:41.354+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

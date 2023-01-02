@@ -1,0 +1,24 @@
+[2023-01-01T20:19:47.402+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.load manual__2023-01-01T20:08:31.042915+00:00 [queued]>
+[2023-01-01T20:19:47.408+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: nba-dag.load manual__2023-01-01T20:08:31.042915+00:00 [queued]>
+[2023-01-01T20:19:47.408+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:19:47.408+0000] {taskinstance.py:1284} INFO - Starting attempt 3 of 6
+[2023-01-01T20:19:47.409+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-01T20:19:47.416+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): load> on 2023-01-01 20:08:31.042915+00:00
+[2023-01-01T20:19:47.422+0000] {standard_task_runner.py:55} INFO - Started process 77 to run task
+[2023-01-01T20:19:47.428+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'nba-dag', 'load', 'manual__2023-01-01T20:08:31.042915+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/nba_dag.py', '--cfg-path', '/tmp/tmpxijjmu83']
+[2023-01-01T20:19:47.429+0000] {standard_task_runner.py:83} INFO - Job 24: Subtask load
+[2023-01-01T20:19:47.511+0000] {task_command.py:389} INFO - Running <TaskInstance: nba-dag.load manual__2023-01-01T20:08:31.042915+00:00 [running]> on host 22057e40c386
+[2023-01-01T20:19:47.581+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Javier Prieto
+AIRFLOW_CTX_DAG_ID=nba-dag
+AIRFLOW_CTX_TASK_ID=load
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-01T20:08:31.042915+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-01T20:08:31.042915+00:00
+[2023-01-01T20:20:21.061+0000] {logging_mixin.py:137} INFO - PDF generated successfully
+[2023-01-01T20:20:21.139+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-01-01T20:20:21.174+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=nba-dag, task_id=load, execution_date=20230101T200831, start_date=20230101T201947, end_date=20230101T202021
+[2023-01-01T20:20:21.315+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-01-01T20:20:21.352+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
