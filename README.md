@@ -1,4 +1,4 @@
-# nba-predictions
+# NBA
 An ETL pipeline with an airflow orchestrator that uses web scraping and interaction with APIs to create an NBA pdf report of a team of your choice.
 It also includes a basic program that uses web scrapping as well to predict the winner of a game based on betting odds.
 
