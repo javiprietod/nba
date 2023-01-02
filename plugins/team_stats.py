@@ -664,5 +664,10 @@ if len(sys.argv) >= 2 and sys.argv[1] == 'run':
     extract()
     transform()
     load()
+    import pronosticos
+    pronosticos.extract()
+    pronosticos.transform()
+    pronosticos.load()
+    print(open('data/pronosticos.txt', 'r').read())
         
     

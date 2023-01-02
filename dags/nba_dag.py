@@ -16,10 +16,9 @@ default_args = {
 dag = DAG(
     dag_id="nba-dag",
     default_args=default_args,
-    schedule_interval='0 14 * * *',
+    schedule_interval='0 15 * * *',
     catchup=False
     )
- 
 
 
 extract_task = PythonOperator(
@@ -40,12 +39,24 @@ load_task = PythonOperator(
     dag=dag
 )
 
-pronosticos_task = PythonOperator(
-    task_id ="pronostico",
-    python_callable=pronosticos.prediction,
+pronosticos_extract_task = PythonOperator(
+    task_id ="pronostico_extract",
+    python_callable=pronosticos.extract,
+    dag=dag
+)
+
+pronosticos_transform_task = PythonOperator(
+    task_id ="pronostico_transform",
+    python_callable=pronosticos.transform,
+    dag=dag
+)
+
+pronosticos_load_task = PythonOperator(
+    task_id ="pronostico_load",
+    python_callable=pronosticos.load,
     dag=dag
 )
 
 
-extract_task >> transform_task >> load_task >> pronosticos_task
+extract_task >> transform_task >> load_task >> pronosticos_extract_task >> pronosticos_transform_task >> pronosticos_load_task
 
