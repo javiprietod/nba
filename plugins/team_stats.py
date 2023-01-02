@@ -12,7 +12,7 @@ import sys
 warnings.filterwarnings('ignore')
 
 
-API_KEY = eval(open('data/config.txt','r').read())['auth']
+API_KEY = eval(open('data/config.txt','r').read())['api_key']
 TEAM = eval(open('data/config.txt','r').read())['team']
 TEAMS = {t['City'] +' '+ t['Name']: {'team_id': t['TeamID'],'team_key': t['Key']} 
     for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
@@ -262,7 +262,7 @@ def get_colors():
 
 
 def extract():
-    API_KEY = eval(open('data/config.txt','r').read())['auth']
+    API_KEY = eval(open('data/config.txt','r').read())['api_key']
     TEAM = eval(open('data/config.txt','r').read())['team']
     TEAMS = {t['City'] +' '+ t['Name']: {'team_id': t['TeamID'],'team_key': t['Key']} 
         for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
@@ -278,7 +278,7 @@ def extract():
 
 
 def transform():
-    API_KEY = eval(open('data/config.txt','r').read())['auth']
+    API_KEY = eval(open('data/config.txt','r').read())['api_key']
     TEAM = eval(open('data/config.txt','r').read())['team']
     TEAMS = {t['City'] +' '+ t['Name']: {'team_id': t['TeamID'],'team_key': t['Key']} 
         for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
@@ -356,7 +356,7 @@ def transform():
 
 
 def load():
-    API_KEY = eval(open('data/config.txt','r').read())['auth']
+    API_KEY = eval(open('data/config.txt','r').read())['api_key']
     TEAM = eval(open('data/config.txt','r').read())['team']
     TEAMS = {t['City'] +' '+ t['Name']: {'team_id': t['TeamID'],'team_key': t['Key']} 
         for t in requests.get(f'https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key={API_KEY}').json() if t['Active']}
