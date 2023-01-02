@@ -19,7 +19,8 @@ pip3 install apache-airflow
 ```
 After that you will need to run the following command in the root directory of the project:
 ```bash
-export AIRFLOW_HOME=$(pwd)
+export AIRFLOW_HOME=$(pwd) # mac
+$env:AIRFLOW_HOME=$(pwd) # windows
 ```
 
 In order to run this project on airflow you will need to have docker installed on your machine. You can download it from [here](https://docs.docker.com/get-docker/). Once you have docker installed you will need to run the following command in the root directory of the project:
