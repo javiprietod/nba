@@ -11,36 +11,36 @@ Now go to your root directory and in the data folder you will find a file called
 ### Airflow
 Beforehand, go to the command line on your root directory and run the following command:
 ```bash
-    pip install apache-airflow
+pip install apache-airflow
 ```
 or if you have a mac:
 ```bash
-    pip3 install apache-airflow
+pip3 install apache-airflow
 ```
 After that you will need to run the following command in the root directory of the project:
 ```bash
-    export AIRFLOW_HOME=$(pwd)
+export AIRFLOW_HOME=$(pwd)
 ```
 
 In order to run this project on airflow you will need to have docker installed on your machine. You can download it from [here](https://docs.docker.com/get-docker/). Once you have docker installed you will need to run the following command in the root directory of the project:
 ```bash
-    docker-compose up
+docker-compose up
 ```
 That will run the airflow server on port 8080. You can access it by going to [http://localhost:8080](http://localhost:8080). The account credentials are:
 ```bash
-    username: airflow
-    password: airflow
+username: airflow
+password: airflow
 ```
 The program will run at 15:00 CET every day. You can change the schedule by going to the `nba_dag.py` file and changing the schedule variable. This variable uses the cron syntax and it is UTC based. You can read more about it [here](https://crontab.guru/).
 
 ### Locally
 In order to run the project locally you will need to have python 3.7 installed on your machine. You can download it from [here](https://www.python.org/downloads/). Once you have python installed you will need to install the dependencies by running the following command in the root directory of the project:
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 After that you will need to run the following command in the root directory of the project:
 ```bash
-    python plugins/team_stats.py run
+python plugins/team_stats.py run
 ```
 
 ## Consuming the output
