@@ -8,7 +8,7 @@ Now go to your root directory and in the data folder you will find a file called
 
 ## Running the project
 
-### Running the project in airflow
+### Airflow
 Beforehand, go to the command line on your root directory and run the following command:
 ```bash
     pip install apache-airflow
@@ -33,7 +33,7 @@ That will run the airflow server on port 8080. You can access it by going to [ht
 ```
 The program will run at 15:00 CET every day. You can change the schedule by going to the `nba_dag.py` file and changing the schedule variable. This variable uses the cron syntax and it is UTC based. You can read more about it [here](https://crontab.guru/).
 
-### Running the project locally
+### Locally
 In order to run the project locally you will need to have python 3.7 installed on your machine. You can download it from [here](https://www.python.org/downloads/). Once you have python installed you will need to install the dependencies by running the following command in the root directory of the project:
 ```bash
     pip install -r requirements.txt
