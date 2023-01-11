@@ -80,6 +80,8 @@ def news():
         for n in newso:
             x = re.search('ago', n.text)
             y = re.search('--', n.text)
+            if not y:
+                y = re.search('read more', n.text)
             text = n.text[x.end():y.start()]
             if text.split()[0] == team_name[0]:
                 news.append(text)
